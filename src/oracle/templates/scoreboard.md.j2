@@ -1,0 +1,31 @@
+# Oracle scoreboard
+
+_Generated {{ generated_sydney }}{% if segment %} · segment: `{{ segment }}`{% endif %}_
+
+## Headline
+
+- **N resolved:** {{ n }}
+{% if sufficient -%}
+- **Mean stream Brier:** {{ "%.4f" | format(mean_brier) }} (95% CI [{{ "%.4f" | format(brier_ci_lo) }}, {{ "%.4f" | format(brier_ci_hi) }}])
+- **Mean log score:** {{ "%.4f" | format(mean_log) }}
+- **ECE:** {{ "%.4f" | format(ece_value) }}
+{% else -%}
+- **Mean stream Brier:** insufficient N
+- **Mean log score:** insufficient N
+- **ECE:** insufficient N
+
+_N < {{ threshold }}: with this few resolutions every headline cell is dominated by noise (§9.4), so numbers are withheld._
+{% endif %}
+
+## Paired comparisons vs baselines
+
+| Baseline | N | Mean Δ Brier | 95% CI | Win rate |
+| --- | --- | --- | --- | --- |
+{% for c in comparisons -%}
+{% if c.sufficient -%}
+| {{ c.baseline }} | {{ c.n }} | {{ "%+.4f" | format(c.mean_delta) }} | [{{ "%.4f" | format(c.ci_lo) }}, {{ "%.4f" | format(c.ci_hi) }}] | {{ "%.0f%%" | format(c.win_rate * 100) }} |
+{% else -%}
+| {{ c.baseline }} | {{ c.n }} | insufficient N | insufficient N | insufficient N |
+{% endif -%}
+{% endfor %}
+_Negative Δ Brier means Oracle beat the baseline (lower Brier is better). Every headline comparison ships a bootstrap CI; cells with N < {{ threshold }} print `insufficient N` (§9.4)._

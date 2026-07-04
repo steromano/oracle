@@ -1,0 +1,82 @@
+# {{ spec.title }}
+
+**Final probability:** {{ prob_decimal }} ({{ prob_pct }}) &nbsp;·&nbsp; **Resilience:** {{ rec.resilience }} &nbsp;·&nbsp; **Horizon:** {{ spec.horizon_days }} days &nbsp;·&nbsp; **Resolves:** {{ deadline_sydney }}
+
+> {{ spec.question_text }}
+
+## 1. Headline
+
+- **Question:** {{ spec.question_text }}
+- **Final probability:** {{ prob_decimal }} ({{ prob_pct }})
+- **Resilience grade:** {{ rec.resilience }}
+- **Horizon:** {{ spec.horizon_days }} days
+- **Resolution deadline:** {{ deadline_sydney }}
+
+## 2. TL;DR
+
+The pooled estimate is **{{ prob_decimal }}** via `{{ rec.pool_method }}` over {{ rec.ensemble | length }} ensemble member(s). See the evidence log (`{{ rec.evidence_log }}`) for the full narrative.
+
+## 3. Outside view
+
+Reference classes and base-rate anchors are recorded in the evidence log (`{{ rec.evidence_log }}`).
+
+## 4. Inside view
+
+Key evidence for and against, with citations, is recorded in the evidence log (`{{ rec.evidence_log }}`).
+
+## 5. Model output
+
+{% if has_model %}A structured model contributed to the ensemble; see the evidence log for sensitivity analysis.{% else %}No structured model was used for this forecast.{% endif %}
+
+## 6. Ensemble
+
+| Member | Probability | Rationale |
+| --- | --- | --- |
+{% for m in rec.ensemble -%}
+| `{{ m.kind }}` | {{ "%.2f" | format(m.probability) }} | {{ m.crux }} |
+{% endfor %}
+- **Pooled ({{ rec.pool_method }}):** {{ prob_decimal }}
+- **Ensemble IQR:** {{ "%.3f" | format(rec.ensemble_iqr) }}
+{% if rec.market_price_used is not none -%}
+- **Market price used:** {{ "%.2f" | format(rec.market_price_used) }}
+{% else -%}
+- **Market price used:** none
+{% endif %}
+{% if raw_pool -%}
+- **Raw pool:** {% for k, v in raw_pool.items() %}{{ k }}={{ "%.2f" | format(v) }}{% if not loop.last %}, {% endif %}{% endfor %}
+{% endif %}
+
+## 7. Red-team notes & update triggers
+
+**Update triggers** (conditions that will prompt a re-forecast, §5.14):
+
+{% for t in rec.update_triggers -%}
+- **[{{ t.type }}]** {{ t.check }}{% if t.due %} — due {{ trigger_due_sydney[loop.index0] }}{% endif %}
+{% endfor %}
+{% if is_update %}
+
+### Stream history
+
+| Seq | Probability | Committed | Rationale |
+| --- | --- | --- | --- |
+{% for s in stream_rows -%}
+| {{ s.seq }} | {{ "%.2f" | format(s.probability) }} | {{ s.committed }} | {{ s.rationale }} |
+{% endfor %}
+{% endif %}
+
+## 8. Benchmark
+
+{% if naive_claude is not none -%}
+- **naive-claude** baseline for this question: {{ "%.2f" | format(naive_claude) }} (harness delta visible at a glance).
+{% else -%}
+- **naive-claude** baseline: not recorded for this question.
+{% endif %}
+
+## 9. Provenance
+
+- **Forecast ID:** {{ rec.id }}
+- **Commit SHA:** {{ rec.git_sha }}
+- **Committed at:** {{ committed_sydney }}
+- **Effort tier:** {{ rec.effort_tier }}
+- **Tools used:** {{ rec.tools_used | join(", ") if rec.tools_used else "none" }}
+- **Evidence hash:** `{{ rec.evidence_hash }}`
