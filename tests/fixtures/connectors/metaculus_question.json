@@ -1,0 +1,11 @@
+{
+  "id": 30123,
+  "title": "Will the RBA cut the cash rate at its August 2026 meeting?",
+  "page_url": "/questions/30123/rba-cash-rate-august-2026/",
+  "resolution_criteria": "This question resolves YES if the Reserve Bank of Australia announces a reduction in the cash rate target at its August 2026 monetary policy meeting.",
+  "close_time": "2026-08-01T05:00:00Z",
+  "number_of_forecasters": 85,
+  "community_prediction": {"full": {"q2": 0.58}},
+  "possibilities": {"type": "binary"},
+  "categories": [{"short_name": "economy"}]
+}

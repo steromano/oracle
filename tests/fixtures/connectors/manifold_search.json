@@ -1,0 +1,28 @@
+[
+  {
+    "id": "j5f3k2",
+    "question": "Will the RBA cut the cash rate in August 2026?",
+    "url": "https://manifold.markets/econbot/will-the-rba-cut-the-cash-rate",
+    "probability": 0.62,
+    "closeTime": 1786752000000,
+    "volume": 3200.5,
+    "totalLiquidity": 450.0,
+    "uniqueBettorCount": 47,
+    "outcomeType": "BINARY",
+    "textDescription": "Resolves YES if the RBA reduces the cash rate target at its August 2026 meeting.",
+    "groupSlugs": ["economics", "australia"]
+  },
+  {
+    "id": "a9b8c7",
+    "question": "Will Australian headline CPI exceed 3% YoY in Q3 2026?",
+    "url": "https://manifold.markets/econbot/will-australian-cpi-exceed-3",
+    "probability": 0.41,
+    "closeTime": 1790000000000,
+    "volume": 1100.0,
+    "totalLiquidity": 220.0,
+    "uniqueBettorCount": 33,
+    "outcomeType": "BINARY",
+    "textDescription": "Resolves YES if ABS reports headline CPI above 3%.",
+    "groupSlugs": ["economics"]
+  }
+]

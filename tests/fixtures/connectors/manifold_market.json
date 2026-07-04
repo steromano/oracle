@@ -1,0 +1,14 @@
+{
+  "id": "j5f3k2",
+  "question": "Will the RBA cut the cash rate in August 2026?",
+  "url": "https://manifold.markets/econbot/will-the-rba-cut-the-cash-rate",
+  "probability": 0.62,
+  "closeTime": 1786752000000,
+  "createdTime": 1751328000000,
+  "volume": 3200.5,
+  "totalLiquidity": 450.0,
+  "uniqueBettorCount": 47,
+  "outcomeType": "BINARY",
+  "textDescription": "Resolves YES if the RBA reduces the cash rate target at its August 2026 meeting. Source: rba.gov.au media release.",
+  "groupSlugs": ["economics", "australia"]
+}
