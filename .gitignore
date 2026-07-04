@@ -1,0 +1,18 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# OS
+.DS_Store
+
+# Scratch model scripts (per-forecast scratch dirs)
+data/**/scratch/
