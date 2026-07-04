@@ -1,0 +1,86 @@
+name: oracle-brain
+
+# Level 2 — scheduled brain (§11.1). SHIPPED DISABLED.
+#
+# This workflow runs Claude Code itself on a schedule via the official
+# anthropics/claude-code-action. It is intentionally OFF by default: the
+# retrospect loop wants a human approving diffs, and the weekly judgment session
+# is the quality control (§11.4). Hold it off for the first ~2 months.
+#
+# To ENABLE: uncomment the `schedule:` block below. Until then the workflow is
+# `workflow_dispatch`-only so it can be exercised by hand.
+
+on:
+  # schedule:
+  #   # 02:00 Australia/Sydney (16:00 UTC). Off-hours so a nightly OAuth-token run
+  #   # coexists with daytime interactive use of the same subscription (§11.2).
+  #   - cron: "0 16 * * *"
+  workflow_dispatch:
+    inputs:
+      max_forecasts:
+        description: "Hard cap on forecasts committed this run (default 5, §11.2)."
+        required: false
+        default: "5"
+
+# Shared with oracle-cron.yml so brain and cron runs never interleave commits.
+concurrency:
+  group: oracle-state
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  brain:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # §11.2: LLM work must ride on the Claude subscription via
+      # CLAUDE_CODE_OAUTH_TOKEN, NEVER on per-token API billing. If
+      # ANTHROPIC_API_KEY were reachable, the action could silently bill the API
+      # account per token. Assert it is absent before invoking the action.
+      - name: Guard - ANTHROPIC_API_KEY must be absent
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -n "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::ANTHROPIC_API_KEY is set; runs must use the OAuth subscription token, never per-token API billing (spec 11.2)."
+            exit 1
+          fi
+          echo "OK: no ANTHROPIC_API_KEY in this environment."
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Pin Python 3.12
+        run: uv python pin 3.12
+
+      - name: Sync dependencies
+        run: uv sync --extra dev
+
+      # Fixed §11.1 prompt with a hard per-run forecast cap (default 5).
+      - name: Run Claude Code (scheduled brain)
+        uses: anthropics/claude-code-action@v1
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          prompt: |
+            Run `oracle status`. Resolve anything due that needs judgment. Run the
+            update workflow for fired triggers. Forecast queued imports (standard
+            tier, at most ${{ github.event.inputs.max_forecasts || '5' }} forecasts
+            this run). Commit all state.
+
+      - name: Commit and push state
+        run: |
+          git config user.name "oracle-bot"
+          git config user.email "oracle-bot@users.noreply.github.com"
+          git add data reports knowledge
+          if git diff --cached --quiet; then
+            echo "No state changes to commit."
+          else
+            git commit -m "[oracle-brain] scheduled forecasting run"
+            git push
+          fi

@@ -1,0 +1,109 @@
+name: oracle-cron
+
+# Level 1 — cron the plumbing (§11.1). SHIPPED ENABLED.
+# Everything here is pure `oracle` CLI: zero LLM, zero API cost. It fetches and
+# seals blind import candidates, checks triggers, resolves platform-resolvable
+# imports, rebuilds the scoreboard/P&L, commits state, and pings a webhook.
+
+on:
+  schedule:
+    # 03:00 Australia/Sydney. GitHub cron is UTC-only; Sydney is UTC+10 (AEST) /
+    # UTC+11 (AEDT). 17:00 UTC == 03:00 AEST (and 04:00 AEDT during DST) — an
+    # off-hours plumbing run, so the one-hour DST drift is harmless.
+    - cron: "0 17 * * *"
+  workflow_dispatch: {}
+
+# Shared with oracle-brain.yml so cron and brain runs never interleave commits.
+concurrency:
+  group: oracle-state
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  plumbing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # §11.2: Level-1 cron does no LLM work and must never carry a per-token
+      # API key. If both credentials were reachable, headless runs could silently
+      # bill the API account. Assert the variable is absent before doing anything.
+      - name: Guard - ANTHROPIC_API_KEY must be absent
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          if [ -n "$ANTHROPIC_API_KEY" ]; then
+            echo "::error::ANTHROPIC_API_KEY is set; the Level-1 cron must never carry it (spec 11.2)."
+            exit 1
+          fi
+          echo "OK: no ANTHROPIC_API_KEY in this environment."
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Pin Python 3.12
+        run: uv python pin 3.12
+
+      - name: Sync dependencies
+        run: uv sync --extra dev
+
+      - name: Rebase on latest state
+        run: |
+          git config user.name "oracle-bot"
+          git config user.email "oracle-bot@users.noreply.github.com"
+          git pull --rebase --autostash || true
+
+      # 1. Fetch + seal blind import candidates (deterministic filters, so
+      #    auto-approve is safe, §5.13).
+      - name: Import fetch (blind, auto-approve)
+        env:
+          FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          ASKNEWS_CLIENT_ID: ${{ secrets.ASKNEWS_CLIENT_ID }}
+          ASKNEWS_CLIENT_SECRET: ${{ secrets.ASKNEWS_CLIENT_SECRET }}
+        run: uv run oracle import fetch --closes-within 14d --auto-approve
+
+      # 2. Surface fired triggers. Exit code 10 means "attention needed"; that is
+      #    informational for cron (the notify step reports it), so do not fail.
+      - name: Check due triggers
+        run: uv run oracle triggers due || true
+
+      # 3. Resolve imports whose platform has resolved. Bespoke questions needing
+      #    judgment are surfaced (exit 10) for a human/LLM session, not failed.
+      - name: Resolve platform-resolvable imports
+        run: uv run oracle resolve --due --platform-only || true
+
+      # 4. Rebuild the two scoreboards.
+      - name: Rebuild scoreboard and P&L
+        run: |
+          uv run oracle scoreboard --render
+          uv run oracle pnl --render
+
+      # 5. Commit + push any changed state with a [oracle-cron] message.
+      - name: Commit and push state
+        run: |
+          git add data reports
+          if git diff --cached --quiet; then
+            echo "No state changes to commit."
+          else
+            git commit -m "[oracle-cron] nightly plumbing: imports, resolutions, scoreboard"
+            git push
+          fi
+
+      # 6. Notify (Slack incoming webhook / email relay). Silence means nothing
+      #    needs a brain. Runs on success or failure so job failures also ping.
+      - name: Notify
+        if: always()
+        env:
+          ORACLE_WEBHOOK_URL: ${{ secrets.ORACLE_WEBHOOK_URL }}
+        run: |
+          if [ -z "$ORACLE_WEBHOOK_URL" ]; then
+            echo "No ORACLE_WEBHOOK_URL configured; skipping notification."
+            exit 0
+          fi
+          payload=$(printf '{"text":"[oracle-cron] run finished with status: %s"}' "${{ job.status }}")
+          curl -sS -X POST -H 'Content-Type: application/json' -d "$payload" "$ORACLE_WEBHOOK_URL" || true
