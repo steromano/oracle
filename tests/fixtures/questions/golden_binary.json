@@ -1,0 +1,19 @@
+{
+  "id": "Q-20260101-001",
+  "title": "Fed cuts rates by end of Q1 2026",
+  "question_text": "Will the US Federal Reserve cut the federal funds target range at or before its March 2026 FOMC meeting?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "Resolves YES if the FOMC announces a reduction to the target range on or before 2026-03-31; NO otherwise.",
+  "resolution_source": "Federal Reserve FOMC statements (federalreserve.gov)",
+  "resolution_deadline": "2026-03-31T23:59:00Z",
+  "edge_cases": "An emergency inter-meeting cut before the deadline also resolves YES. A hike or hold resolves NO.",
+  "domain": "macro",
+  "horizon_days": 89,
+  "linked_markets": [],
+  "origin": "user",
+  "blind": false,
+  "sealed_snapshot": null,
+  "created_at": "2026-01-01T00:00:00Z",
+  "created_by": "stefano@dovetail.com"
+}

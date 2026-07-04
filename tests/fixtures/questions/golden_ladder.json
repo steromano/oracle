@@ -1,0 +1,19 @@
+{
+  "id": "Q-20260101-002",
+  "title": "US CPI YoY, March 2026 release",
+  "question_text": "What will the US headline CPI year-over-year figure be for the March 2026 release?",
+  "q_type": "threshold_ladder",
+  "thresholds": [2.0, 3.0, 4.0],
+  "resolution_criteria": "Resolves against the Bureau of Labor Statistics headline CPI year-over-year figure in the release published in April 2026.",
+  "resolution_source": "US Bureau of Labor Statistics CPI release (bls.gov)",
+  "resolution_deadline": "2026-04-15T23:59:00Z",
+  "edge_cases": "Uses the headline (not core) figure. First print only; later revisions are ignored.",
+  "domain": "macro",
+  "horizon_days": 104,
+  "linked_markets": [],
+  "origin": "user",
+  "blind": false,
+  "sealed_snapshot": null,
+  "created_at": "2026-01-01T00:00:00Z",
+  "created_by": "stefano@dovetail.com"
+}
