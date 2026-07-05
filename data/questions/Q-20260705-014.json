@@ -1,0 +1,21 @@
+{
+  "id": "Q-20260705-014",
+  "title": "NVIDIA (NVDA) reaches $350 before 2028",
+  "question_text": "Will NVIDIA's share price (NASDAQ: NVDA) trade at or above $350 at any point on or before 2027-12-31?",
+  "q_type": "binary",
+  "thresholds": [
+    350.0
+  ],
+  "resolution_criteria": "Resolves YES if NVDA reaches $350.00 or higher intraday on any regular NASDAQ session on or before 2027-12-31. Split adjustment: the $350 target is set on NVDA's share basis at creation (~$195 spot); if NVDA executes a forward/reverse split before resolution, the threshold is divided/multiplied by the split ratio to preserve the economic target (~$8.6T market cap). Resolves NO if it never reaches the (split-adjusted) target by the deadline.",
+  "resolution_source": "NASDAQ intraday price via a market-data provider (yfinance / stooq)",
+  "resolution_deadline": "2027-12-31T21:00:00Z",
+  "edge_cases": "Intraday touch counts (not just closing). Regular sessions only (pre/post-market excluded). If NVDA splits, adjust the threshold by the split ratio (economic target preserved). Delisting/acquisition at an implied price >= target resolves YES; otherwise judge by the last traded price vs target.",
+  "domain": "finance",
+  "horizon_days": 544,
+  "linked_markets": [],
+  "origin": "user",
+  "blind": false,
+  "sealed_snapshot": null,
+  "created_at": "2026-07-05T05:07:52.817159Z",
+  "created_by": "ste.romano83@gmail.com"
+}

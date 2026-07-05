@@ -1,0 +1,78 @@
+{
+  "id": "F-20260705-010",
+  "question_id": "Q-20260705-014",
+  "stream_id": "F-20260705-010",
+  "stream_seq": 0,
+  "probability": 0.33,
+  "raw_pool": {
+    "median": 0.33,
+    "trimmed": 0.33,
+    "geo_odds": 0.3336
+  },
+  "ensemble": [
+    {
+      "kind": "method:modelling-barrier-touch",
+      "probability": 0.32,
+      "crux": "GBM barrier-touch S0=195,H=350,T=1.49y,sigma~0.47,mu~0.12 -> ~0.32 (range 0.23-0.41)"
+    },
+    {
+      "kind": "method:base-rate-outside",
+      "probability": 0.3,
+      "crux": "megacap +80% intraday touch over ~18 months is uncommon but NVDA has done bigger in the AI cycle"
+    },
+    {
+      "kind": "evidence-slice:fundamental",
+      "probability": 0.38,
+      "crux": " within the analyst bull range (~ high) over a longer 18-mo window; +85% YoY revenue"
+    },
+    {
+      "kind": "evidence-slice:full",
+      "probability": 0.34,
+      "crux": "model + fundamentals vs AI-capex digestion / competition / valuation risk"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "moderate",
+  "ensemble_iqr": 0.03,
+  "process_audit": {
+    "spec_unambiguous": true,
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "modelling_ran": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch",
+    "python-model"
+  ],
+  "evidence_log": "data/evidence/F-20260705-010.md",
+  "evidence_hash": "f66198273b608aafa87fbc22dd1b51b0c01116200ac9c4f59a9d978610c7d643",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T05:10:04.247516Z",
+  "git_sha": "93106e06544d2f4fa38133b873d14165e3335531",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "release",
+      "check": "NVDA quarterly earnings/guidance (reprices the path)",
+      "due": "2026-08-28T00:00:00Z"
+    },
+    {
+      "type": "market_move",
+      "check": "NVDA closes above  (approaching target) or below  (thesis weakening)",
+      "due": "2026-12-31T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Mid-horizon reassessment",
+      "due": "2027-06-30T00:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}
