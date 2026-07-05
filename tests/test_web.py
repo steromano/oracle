@@ -1,9 +1,8 @@
 """Tests for the Flask web layer (oracle.web).
 
 Exercised entirely through Flask's test client — no live server, no network.
-The web layer is a read-mostly view over the immutable ledger plus a deterministic
-``/new`` intake that only queues a question into ``data/inbox/`` (§3.1: the Python
-layer never runs the LLM forecast pipeline).
+The web layer is a read-only view over the immutable ledger (§3.1: the Python
+layer never runs the LLM forecast pipeline; forecasting is Claude-Code-driven).
 """
 
 from __future__ import annotations
@@ -184,45 +183,3 @@ def test_unknown_question_404(state_root: Path):
     _seed(state_root)
     client = create_app(state_root).test_client()
     assert client.get("/q/Q-does-not-exist").status_code == 404
-
-
-def test_new_get_renders_form(state_root: Path):
-    client = create_app(state_root).test_client()
-    resp = client.get("/new")
-    assert resp.status_code == 200
-    body = resp.get_data(as_text=True)
-    assert "<form" in body
-    # The page must state forecasting happens in Claude Code, not here.
-    assert "Claude Code" in body
-
-
-def test_new_post_queues_to_inbox_and_shows_pending(state_root: Path):
-    app = create_app(state_root)
-    client = app.test_client()
-
-    resp = client.post(
-        "/new",
-        data={
-            "question": "Will the Fed cut rates in March?",
-            "deadline": "2026-03-31",
-            "domain": "macro",
-        },
-    )
-    assert resp.status_code in (302, 303)
-
-    inbox = state_root / "data" / "inbox"
-    files = list(inbox.glob("*.json"))
-    assert len(files) == 1
-    payload = files[0].read_text(encoding="utf-8")
-    assert "Will the Fed cut rates in March?" in payload
-    assert "2026-03-31" in payload
-
-    # The queued file appears in the pending section on the home page.
-    home = client.get("/").get_data(as_text=True)
-    assert files[0].name in home
-
-
-def test_new_post_without_question_rejected(state_root: Path):
-    client = create_app(state_root).test_client()
-    resp = client.post("/new", data={"question": ""})
-    assert resp.status_code == 400

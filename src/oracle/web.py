@@ -1,27 +1,22 @@
-"""Tiny read-mostly Flask app over the Oracle ledger (§3.1-compatible).
+"""Tiny read-only Flask app over the Oracle ledger (§3.1-compatible).
 
-This is a *presentation and intake* layer only. Per the architectural constraint
-in §3.1 (Python is deterministic-only), the web layer NEVER runs the LLM forecast
-pipeline. It reads the immutable ledger/benchmarks/report modules to display state,
-and the ``/new`` route only *queues* a question into ``data/inbox/`` for a Claude
-Code session (interactive, or the scheduled Level-2 brain) to pick up and forecast.
+This is a *presentation* layer only. Per the architectural constraint in §3.1
+(Python is deterministic-only), the web layer NEVER runs the LLM forecast
+pipeline — forecasting is entirely Claude-Code-driven. The app just reads the
+immutable ledger/benchmarks/report modules to display state.
 
 Routes:
 
-* ``GET /``          — one row per question (latest stream point), pending inbox list.
+* ``GET /``          — one row per question (latest stream point).
 * ``GET /q/<qid>``   — spec summary, update history, and the self-contained report.
-* ``GET /new``       — HTML form to queue a new question.
-* ``POST /new``      — write a pending request into ``data/inbox/`` and redirect home.
 """
 
 from __future__ import annotations
 
-import json
-from datetime import datetime, timezone
 from pathlib import Path
 
 import markdown as _markdown
-from flask import Flask, abort, redirect, render_template, request, url_for
+from flask import Flask, abort, render_template
 
 from oracle.benchmarks import get_baselines
 from oracle.ledger import Ledger
@@ -29,10 +24,6 @@ from oracle.models import QuestionSpec
 from oracle.report import render_report
 
 _TEMPLATE_DIR = Path(__file__).parent / "templates" / "web"
-
-
-def _inbox_dir(root: Path) -> Path:
-    return Path(root) / "data" / "inbox"
 
 
 def _questions_dir(root: Path) -> Path:
@@ -48,9 +39,6 @@ def _load_spec(root: Path, qid: str) -> QuestionSpec | None:
 
 def create_app(root: Path) -> Flask:
     root = Path(root)
-    # Inbox is created on demand so a fresh root can accept queued questions.
-    _inbox_dir(root).mkdir(parents=True, exist_ok=True)
-
     app = Flask(__name__, template_folder=str(_TEMPLATE_DIR))
     app.config["ORACLE_ROOT"] = root
 
@@ -93,9 +81,7 @@ def create_app(root: Path) -> Flask:
                 }
             )
         rows.sort(key=lambda r: r["qid"])
-
-        pending = sorted(p.name for p in _inbox_dir(root).glob("*.json"))
-        return render_template("index.html", rows=rows, pending=pending)
+        return render_template("index.html", rows=rows)
 
     @app.route("/q/<qid>")
     def question(qid: str):
@@ -133,31 +119,5 @@ def create_app(root: Path) -> Flask:
             history=history,
             report_html=report_html,
         )
-
-    @app.route("/new", methods=["GET", "POST"])
-    def new():
-        if request.method == "POST":
-            raw_question = (request.form.get("question") or "").strip()
-            if not raw_question:
-                abort(400, "question is required")
-            deadline = (request.form.get("deadline") or "").strip() or None
-            domain = (request.form.get("domain") or "").strip() or None
-            now = datetime.now(timezone.utc)
-            payload = {
-                "raw_question": raw_question,
-                "deadline": deadline,
-                "domain": domain,
-                "created_at": now.isoformat(),
-            }
-            inbox = _inbox_dir(root)
-            inbox.mkdir(parents=True, exist_ok=True)
-            # Timestamped filename; ':' is unsafe on some filesystems, so use a
-            # compact UTC ISO stamp with microseconds to avoid collisions.
-            stamp = now.strftime("%Y%m%dT%H%M%S%fZ")
-            (inbox / f"{stamp}.json").write_text(
-                json.dumps(payload, indent=2), encoding="utf-8"
-            )
-            return redirect(url_for("index"), code=303)
-        return render_template("new.html")
 
     return app

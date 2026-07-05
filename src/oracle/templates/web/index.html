@@ -41,24 +41,6 @@
   </tbody>
 </table>
 {% else %}
-<p class="muted">No forecasts committed yet.</p>
+<p class="muted">No forecasts committed yet. Ask Oracle a question in Claude Code to populate the ledger.</p>
 {% endif %}
-
-<h2>Pending questions (awaiting forecast in Claude Code)</h2>
-<div class="note">
-  Queued questions are <strong>not</strong> forecast by this web app. Forecasting runs
-  in a Claude Code session (interactive, or the scheduled Level-2 brain) that reads
-  <code>data/inbox/</code>. This layer is deterministic-only and never invokes an LLM.
-</div>
-{% if pending %}
-<ul>
-  {% for name in pending %}
-  <li><code>{{ name }}</code></li>
-  {% endfor %}
-</ul>
-{% else %}
-<p class="muted">Nothing queued.</p>
-{% endif %}
-
-<p><a class="btn" href="{{ url_for('new') }}">Queue a new question</a></p>
 {% endblock %}
