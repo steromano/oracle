@@ -2,10 +2,10 @@
 
 **Date:** 2026-07-05
 **Author:** Stefano Romano (build design drafted with Claude)
-**Authoritative design:** `forecasting-harness-spec.md` (Draft v1.1). This document does
-**not** restate that architecture; it records only the decisions the spec leaves open and
-that govern *this* implementation pass. Where this doc and the spec agree, the spec wins;
-where the spec leaves a choice, this doc pins it.
+**Original reference:** `docs/forecasting-harness-spec.md` (Draft v1.1) — the starting-point
+spec, kept for reference only. **It is not authoritative and we deviate from it freely as we
+iterate.** The living source of truth is the running code + this doc's amendments (§6) + git
+history + CLAUDE.md. Where the spec and current practice disagree, current practice wins.
 
 ---
 

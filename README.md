@@ -300,5 +300,9 @@ src/oracle/         deterministic package (models, scoring, ledger, CLI, ...)
 data/               git-tracked JSON state (ledger, questions, sealed, benchmarks)
 reports/            rendered forecast reports + scoreboards
 .github/workflows/  oracle-cron.yml (L1, on) + oracle-brain.yml (L2, off)
-forecasting-harness-spec.md   the authoritative design
+docs/               original spec (reference only) + build design + plans
 ```
+
+> The living design lives in code + `docs/superpowers/specs/*-build-design.md` +
+> git history. `docs/forecasting-harness-spec.md` is the original v1.1 spec, kept
+> as a reference point — we deviate from it as the system iterates.

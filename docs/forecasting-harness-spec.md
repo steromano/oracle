@@ -1,5 +1,11 @@
 # Oracle: technical spec for a self-improving LLM forecasting harness
 
+> **⚠️ Reference only — not the source of truth.** This is the original v1.1
+> starting-point spec. Oracle has deviated from it and will keep deviating as it
+> iterates. For current behaviour, read the running code, `CLAUDE.md`, and the
+> build-design amendments under `docs/superpowers/specs/`. Section numbers (§X)
+> elsewhere in the repo still point here for provenance.
+
 **Status:** Draft v1.1 — for handover to a coding agent
 **Author:** Stefano Romano (spec drafted with Claude)
 **Date:** 4 July 2026
