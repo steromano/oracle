@@ -1,0 +1,71 @@
+{
+  "id": "F-20260705-005",
+  "question_id": "Q-20260705-009",
+  "stream_id": "F-20260705-005",
+  "stream_seq": 0,
+  "probability": 0.83,
+  "raw_pool": {
+    "median": 0.83,
+    "trimmed": 0.83,
+    "geo_odds": 0.8433
+  },
+  "ensemble": [
+    {
+      "kind": "method:actuarial-frail",
+      "probability": 0.9,
+      "crux": "84yo baseline monthly mortality ~0.5-1%, elevated by frailty"
+    },
+    {
+      "kind": "method:news-crisis",
+      "probability": 0.78,
+      "crux": "cardiac arrest 14 Jun 2026, hospitalized weeks; acute but 'improving'"
+    },
+    {
+      "kind": "evidence-slice:synthesis",
+      "probability": 0.83,
+      "crux": "survived the acute event and improving, but post-arrest near-term risk stays elevated"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "fragile",
+  "ensemble_iqr": 0.06,
+  "process_audit": {
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-005.md",
+  "evidence_hash": "af8c05659ff87c1ecc629172a04c6337695eac08de155700a04242aacba5ee5f",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T04:40:19.180799Z",
+  "git_sha": "f56330c87bb2561804664d19cf7ed5f42e7b8e6a",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "McConnell discharge or deterioration",
+      "due": "2026-07-12T00:00:00Z"
+    },
+    {
+      "type": "event",
+      "check": "Hospitalization status change",
+      "due": "2026-07-22T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "End-of-month survival check",
+      "due": "2026-07-31T23:59:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}

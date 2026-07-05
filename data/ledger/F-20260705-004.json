@@ -1,0 +1,66 @@
+{
+  "id": "F-20260705-004",
+  "question_id": "Q-20260705-008",
+  "stream_id": "F-20260705-004",
+  "stream_seq": 0,
+  "probability": 0.05,
+  "raw_pool": {
+    "median": 0.05,
+    "trimmed": 0.05,
+    "geo_odds": 0.0567
+  },
+  "ensemble": [
+    {
+      "kind": "method:frontier-gap",
+      "probability": 0.05,
+      "crux": "a perfect score is beyond even closed frontier labs (5/6 in 2025); open-weight trails the frontier"
+    },
+    {
+      "kind": "method:os-lag",
+      "probability": 0.04,
+      "crux": "no open-weight model was at gold under contest conditions in 2025"
+    },
+    {
+      "kind": "evidence-slice:tail",
+      "probability": 0.09,
+      "crux": "a fast-closing Chinese open-weight math specialist (DeepSeek/Qwen) is the tail"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "moderate",
+  "ensemble_iqr": 0.025,
+  "process_audit": {
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-004.md",
+  "evidence_hash": "6517d1c18d1e280bc17b7ac1200e0a716d511a3ffa536d283f0ced71fd8297bb",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T04:40:18.551015Z",
+  "git_sha": "f56330c87bb2561804664d19cf7ed5f42e7b8e6a",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "IMO 2026 results incl. any open-weight model's score",
+      "due": "2026-07-25T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Resolution by end July",
+      "due": "2026-07-31T00:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}

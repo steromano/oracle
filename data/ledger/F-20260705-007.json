@@ -1,0 +1,71 @@
+{
+  "id": "F-20260705-007",
+  "question_id": "Q-20260705-011",
+  "stream_id": "F-20260705-007",
+  "stream_seq": 0,
+  "probability": 0.15,
+  "raw_pool": {
+    "median": 0.15,
+    "trimmed": 0.15,
+    "geo_odds": 0.1493
+  },
+  "ensemble": [
+    {
+      "kind": "method:favorite-base",
+      "probability": 0.15,
+      "crux": "top favorites cap ~15-20% in a 48-team single-elim field"
+    },
+    {
+      "kind": "method:tournament-state",
+      "probability": 0.17,
+      "crux": "France through to the Round of 16 (vs Paraguay), a top contender still on track"
+    },
+    {
+      "kind": "evidence-slice:deep-field",
+      "probability": 0.13,
+      "crux": "Argentina/Brazil/Spain/England also strong; knockout variance"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "fragile",
+  "ensemble_iqr": 0.02,
+  "process_audit": {
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-007.md",
+  "evidence_hash": "e25cba33898a26483887370a4ef631f50f9c652274c3e2f3459882a3b7d6a28e",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T04:40:20.422027Z",
+  "git_sha": "f56330c87bb2561804664d19cf7ed5f42e7b8e6a",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "Round of 16 & quarterfinal results",
+      "due": "2026-07-11T00:00:00Z"
+    },
+    {
+      "type": "event",
+      "check": "Semifinal result",
+      "due": "2026-07-15T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Final",
+      "due": "2026-07-18T23:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}

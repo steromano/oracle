@@ -1,0 +1,66 @@
+{
+  "id": "F-20260705-006",
+  "question_id": "Q-20260705-010",
+  "stream_id": "F-20260705-006",
+  "stream_seq": 0,
+  "probability": 0.05,
+  "raw_pool": {
+    "median": 0.05,
+    "trimmed": 0.05,
+    "geo_odds": 0.0544
+  },
+  "ensemble": [
+    {
+      "kind": "method:statutory-floor",
+      "probability": 0.04,
+      "crux": "criminal sexual act 1st degree = class B violent felony with a 5-year mandatory minimum -> <5y is below the floor"
+    },
+    {
+      "kind": "method:news-20yask",
+      "probability": 0.05,
+      "crux": "prosecutors seeking 20 years; convicted on the CSA count (Haley)"
+    },
+    {
+      "kind": "evidence-slice:tail",
+      "probability": 0.08,
+      "crux": "age/health leniency or a lesser-charge technicality"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "moderate",
+  "ensemble_iqr": 0.02,
+  "process_audit": {
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-006.md",
+  "evidence_hash": "5d0885ac2278026578fef0815a76ed9af352e92dfd8e15361ecd18f4738b5f9f",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T04:40:19.798283Z",
+  "git_sha": "f56330c87bb2561804664d19cf7ed5f42e7b8e6a",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "NY sentencing hearing outcome",
+      "due": "2026-08-01T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Resolution",
+      "due": "2026-09-01T00:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}

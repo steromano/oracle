@@ -1,0 +1,71 @@
+{
+  "id": "F-20260705-008",
+  "question_id": "Q-20260705-012",
+  "stream_id": "F-20260705-008",
+  "stream_seq": 0,
+  "probability": 0.04,
+  "raw_pool": {
+    "median": 0.04,
+    "trimmed": 0.04,
+    "geo_odds": 0.0392
+  },
+  "ensemble": [
+    {
+      "kind": "method:host-midtier",
+      "probability": 0.04,
+      "crux": "host but not elite; must win 4 knockouts to lift the trophy"
+    },
+    {
+      "kind": "method:tournament-state",
+      "probability": 0.05,
+      "crux": "USA in the Round of 16 (vs Belgium) with home advantage"
+    },
+    {
+      "kind": "evidence-slice:tail",
+      "probability": 0.03,
+      "crux": "a deep run is possible but the title is a stretch"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "fragile",
+  "ensemble_iqr": 0.01,
+  "process_audit": {
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-008.md",
+  "evidence_hash": "4a3f6f1a8e691ecca787b1281930357db1d5b189035cb2784408e547d89f73f6",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T04:40:21.043918Z",
+  "git_sha": "f56330c87bb2561804664d19cf7ed5f42e7b8e6a",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "Round of 16 (vs Belgium) & quarterfinal",
+      "due": "2026-07-11T00:00:00Z"
+    },
+    {
+      "type": "event",
+      "check": "Semifinal",
+      "due": "2026-07-15T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Final",
+      "due": "2026-07-18T23:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}
