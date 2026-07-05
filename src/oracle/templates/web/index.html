@@ -3,7 +3,7 @@
 {% block content %}
 <h1>Forecast ledger</h1>
 
-{% if rows %}
+{% macro ledger_table(section_rows) %}
 <table>
   <thead>
     <tr>
@@ -19,7 +19,7 @@
     </tr>
   </thead>
   <tbody>
-    {% for r in rows %}
+    {% for r in section_rows %}
     <tr>
       <td><a href="{{ r.qid }}.html">{{ r.title }}</a></td>
       <td>{{ r.domain }}</td>
@@ -40,7 +40,26 @@
     {% endfor %}
   </tbody>
 </table>
+{% endmacro %}
+
+{% set user_rows = rows | selectattr('origin', 'equalto', 'user') | list %}
+{% set import_rows = rows | selectattr('origin', 'equalto', 'import') | list %}
+
+<h2>Your questions <span class="muted">— deployment</span></h2>
+{% if user_rows %}
+{{ ledger_table(user_rows) }}
 {% else %}
-<p class="muted">No forecasts committed yet. Ask Oracle a question in Claude Code to populate the ledger.</p>
+<p class="muted">No user questions yet. Ask Oracle a question in Claude Code.</p>
+{% endif %}
+
+<h2>Market imports <span class="muted">— blind, testing / calibration</span></h2>
+<div class="note">
+  Imported from prediction markets in <strong>blind mode</strong>: the market price was sealed
+  <em>before</em> forecasting, so the <code>market</code> column here is an untainted head-to-head benchmark.
+</div>
+{% if import_rows %}
+{{ ledger_table(import_rows) }}
+{% else %}
+<p class="muted">No imported questions yet. Run <code>oracle import fetch</code>.</p>
 {% endif %}
 {% endblock %}

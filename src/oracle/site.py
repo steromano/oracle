@@ -61,6 +61,8 @@ def _ledger_rows(root: Path, ledger: Ledger) -> list[dict]:
             {
                 "qid": qid,
                 "title": spec.title if spec else qid,
+                "origin": spec.origin if spec else "user",
+                "blind": spec.blind if spec else False,
                 "domain": spec.domain if spec else "",
                 "status": "Resolved" if resolution is not None else "Open",
                 "oracle_pct": f"{rec.probability * 100:.0f}%",

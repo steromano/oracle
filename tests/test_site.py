@@ -73,7 +73,7 @@ def _forecast(
     )
 
 
-def _spec(qid: str, title: str) -> QuestionSpec:
+def _spec(qid: str, title: str, origin: str = "user") -> QuestionSpec:
     return QuestionSpec(
         id=qid,
         title=title,
@@ -87,8 +87,8 @@ def _spec(qid: str, title: str) -> QuestionSpec:
         domain="macro",
         horizon_days=180,
         linked_markets=[],
-        origin="user",
-        blind=False,
+        origin=origin,
+        blind=(origin == "import"),
         sealed_snapshot=None,
         created_at=datetime(2026, 1, 1, tzinfo=UTC),
         created_by="stefano",
@@ -174,6 +174,27 @@ def test_forecast_page_generated(state_root: Path):
     assert "moderate" in body
     # Static back-link to the ledger.
     assert 'href="index.html"' in body
+
+
+def test_ledger_separates_user_and_import(state_root: Path):
+    led = Ledger(state_root)
+    _write_spec(state_root, _spec("Q-20260101-010", "A user deployment question", origin="user"))
+    led.append_forecast(
+        _forecast(fid="F-20260101-010", question_id="Q-20260101-010",
+                  committed_at=datetime(2026, 1, 2, tzinfo=UTC))
+    )
+    _write_spec(state_root, _spec("Q-20260101-011", "A blind imported question", origin="import"))
+    led.append_forecast(
+        _forecast(fid="F-20260101-011", question_id="Q-20260101-011",
+                  committed_at=datetime(2026, 1, 2, tzinfo=UTC))
+    )
+    body = (render_site(state_root, state_root / "site") / "index.html").read_text(encoding="utf-8")
+    # Two labelled sections exist.
+    assert "deployment" in body and "testing" in body.lower()
+    # The user question appears before the import section header; the import after it.
+    import_header_pos = body.find("Market imports")
+    assert 0 < body.find("A user deployment question") < import_header_pos
+    assert body.find("A blind imported question") > import_header_pos
 
 
 def test_no_page_for_unknown_question(state_root: Path):
