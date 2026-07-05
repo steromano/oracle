@@ -48,13 +48,17 @@ Load a skill's `SKILL.md` on demand when the workflow reaches it.
 
 1. **Never state a final probability before `oracle commit` succeeds.** The CLI
    stamps `committed_at` and the git SHA; you cannot backdate or forge them.
-2. **Always produce the naive-Claude baseline *before* research** (§9.2). Elicit
-   it from a clean subagent (fresh context — no tools, no evidence, no lessons)
-   using **exactly** this prompt:
-   > Think like a superforecaster and answer with a probability. [question spec]
+2. **Always produce the LLM baseline *before* Oracle's own research** (§9.2).
+   Elicit it from an **isolated subagent that may search the web** but gets none
+   of the harness (no ensemble, base rates, red-team, calibration, or lessons) —
+   a single web-enabled Claude answering the spec. Prompt:
+   > Think like a superforecaster. Research the question as needed (you may search
+   > the web) and answer with one calibrated probability. [question spec]
 
-   Then `oracle baseline record <qid> naive-claude <p>`. Eliciting it first
-   prevents contamination from research context.
+   Then `oracle baseline record <qid> naive-claude <p>` (stored under the historical
+   key `naive-claude`; shown as **"LLM"**). Because it runs as a separate subagent,
+   its web research cannot contaminate Oracle's own pipeline. This benchmark asks
+   the sharp question: *does the harness's structure beat a capable, current LLM?*
 3. **Read `knowledge/lessons.md` before forecasting**; cite lesson numbers when
    they influence the forecast.
 4. **Round only at the very end.** Work in fine-grained probabilities

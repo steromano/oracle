@@ -170,7 +170,7 @@ def test_forecast_page_generated(state_root: Path):
     assert "Update history" in body
     assert "initial" in body  # seq-0 rationale
     # Embedded self-contained report content.
-    assert "naive-claude" in body
+    assert "LLM" in body
     assert "moderate" in body
     # Static back-link to the ledger.
     assert 'href="index.html"' in body

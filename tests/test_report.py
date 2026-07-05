@@ -207,8 +207,8 @@ def test_report_contains_fixed_structure(state_root: Path):
     assert "historical frequency of comparable events" in out
     # Update triggers (§5.14).
     assert "next CPI print exceeds 3.5%" in out
-    # Benchmark line: naive-claude baseline (§9.2).
-    assert "naive-claude" in out
+    # Benchmark line: LLM (web-enabled) baseline (§9.2).
+    assert "LLM" in out
     # Provenance footer.
     assert "F-20260101-001" in out
     assert "deadbeefcafe" in out
