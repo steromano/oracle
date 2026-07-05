@@ -199,3 +199,15 @@ class MetaculusConnector:
 
     def fetch_snapshot(self, market_id: str) -> SealedSnapshot:
         return _parse_snapshot(self._get(f"/questions/{market_id}/"))
+
+    def get_resolution(self, market_id: str) -> str | None:
+        """Return 'yes'/'no'/'void' if Metaculus has resolved the question, else None."""
+        res = _q(self._get(f"/questions/{market_id}/")).get("resolution")
+        if res in (None, ""):
+            return None
+        r = str(res).lower()
+        if r == "yes":
+            return "yes"
+        if r == "no":
+            return "no"
+        return "void"  # annulled / ambiguous / non-binary resolution

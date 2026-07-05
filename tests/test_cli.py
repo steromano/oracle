@@ -290,3 +290,48 @@ def test_connectors_doctor_runs(state_root):
     res = _invoke(runner, state_root, "connectors", "doctor")
     assert res.exit_code == 0, res.output
     assert "manifold" in res.output
+
+
+def test_resolve_platform_only_auto_resolves_import(state_root, monkeypatch):
+    """--platform-only reads the platform's settled outcome and auto-resolves."""
+    from datetime import datetime, timezone
+    from oracle.models import (
+        QuestionSpec, ForecastRecord, MarketLink, EnsembleMember, UpdateTrigger,
+    )
+    UTC = timezone.utc
+    qid, fid = "Q-20260101-050", "F-20260101-050"
+    spec = QuestionSpec(
+        id=qid, title="t", question_text="?", q_type="binary", thresholds=None,
+        resolution_criteria="c", resolution_source="platform",
+        resolution_deadline=datetime(2026, 1, 2, tzinfo=UTC), edge_cases="",
+        domain="other", horizon_days=1,
+        linked_markets=[MarketLink(platform="manifold", market_id="m1")],
+        origin="import", blind=True, sealed_snapshot=None,
+        created_at=datetime(2026, 1, 1, tzinfo=UTC), created_by="t",
+    )
+    qd = state_root / "data" / "questions"
+    qd.mkdir(parents=True, exist_ok=True)
+    (qd / f"{qid}.json").write_text(spec.model_dump_json(), encoding="utf-8")
+    led = Ledger(state_root)
+    led.append_forecast(ForecastRecord(
+        id=fid, question_id=qid, stream_id=fid, stream_seq=0, probability=0.7,
+        raw_pool={"median": 0.7},
+        ensemble=[EnsembleMember(kind="m", probability=0.7, crux="c")],
+        pool_method="median", resilience="moderate", ensemble_iqr=0.0,
+        process_audit={}, effort_tier="standard", tools_used=[], evidence_log="",
+        evidence_hash="a" * 64, committed_at=datetime(2026, 1, 3, tzinfo=UTC),
+        git_sha="x", update_triggers=[UpdateTrigger(type="date", check="c", due=None)],
+    ))
+
+    class _Stub:
+        name = "manifold"
+
+        def get_resolution(self, market_id):
+            assert market_id == "m1"
+            return "yes"
+
+    monkeypatch.setattr("oracle.cli.registry", lambda: {"manifold": _Stub()})
+    res = _invoke(CliRunner(), state_root, "resolve", "--due", "--platform-only")
+    assert "Auto-resolved" in res.output, res.output
+    resolution = led.resolution_for(fid)
+    assert resolution is not None and resolution.outcome == "yes"

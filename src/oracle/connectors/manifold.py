@@ -129,3 +129,15 @@ class ManifoldConnector:
 
     def fetch_snapshot(self, market_id: str) -> SealedSnapshot:
         return _parse_snapshot(self._get(f"/market/{market_id}"))
+
+    def get_resolution(self, market_id: str) -> str | None:
+        """Return 'yes'/'no'/'void' if Manifold has resolved the market, else None."""
+        d = self._get(f"/market/{market_id}")
+        if not d.get("isResolved"):
+            return None
+        r = str(d.get("resolution") or "").upper()
+        if r == "YES":
+            return "yes"
+        if r == "NO":
+            return "no"
+        return "void"  # MKT (probabilistic) / CANCEL / anything non-binary -> VOID

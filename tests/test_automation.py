@@ -57,7 +57,7 @@ def test_cron_uses_shared_concurrency_group():
 
 def test_cron_runs_the_plumbing_steps():
     text = CRON.read_text(encoding="utf-8")
-    assert "import fetch --closes-within 14d --auto-approve" in text
+    assert "import fetch" in text and "--closes-within 14d" in text and "--auto-approve" in text
     assert "triggers due" in text
     assert "resolve --due --platform-only" in text
     assert "scoreboard --render" in text

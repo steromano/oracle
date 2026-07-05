@@ -178,6 +178,44 @@ def test_polymarket_parse_snapshot():
     assert snap.liquidity == pytest.approx(18000.75)
 
 
+def _pm_market(mid, q, vol, liq, days, event=None, outcomes=("Yes", "No")):
+    from datetime import timedelta
+    end = (datetime(2026, 7, 5, tzinfo=timezone.utc) + timedelta(days=days)).strftime(
+        "%Y-%m-%dT%H:%M:%SZ"
+    )
+    m = {"id": mid, "question": q, "volumeNum": vol, "liquidityNum": liq,
+         "endDate": end, "outcomes": list(outcomes)}
+    if event:
+        m["events"] = [{"slug": event}]
+    return m
+
+
+def test_polymarket_curate_filters_and_dedupes():
+    now = datetime(2026, 7, 5, tzinfo=timezone.utc).timestamp()
+    markets = [
+        _pm_market("1", "Will France win the World Cup?", 9e7, 4e6, 10, event="wc"),   # keep
+        _pm_market("2", "Will Spain win the World Cup?", 8e7, 4e6, 10, event="wc"),     # drop: same event
+        _pm_market("3", "Bitcoin Up or Down - 12:40AM?", 5e7, 3e6, 0.01),               # drop: tick
+        _pm_market("4", "Will the Fed cut rates in September?", 5e6, 3e5, 20, event="fed"),  # keep
+        _pm_market("5", "Tiny niche market?", 5e4, 1e3, 10, event="niche"),             # drop: low liq/vol
+        _pm_market("6", "A three-way market?", 6e6, 3e5, 10, event="x", outcomes=("A", "B", "C")),  # drop: not binary
+    ]
+    out = polymarket._curate(
+        markets, now_ts=now, floor_ts=now + 2 * 86400, cutoff_ts=now + 45 * 86400,
+        min_liq=20000, min_vol=100000, want=10,
+    )
+    assert [c.market_id for c in out] == ["1", "4"]
+
+
+def test_polymarket_resolution_parsing():
+    assert polymarket._resolution({"closed": False}) is None
+    assert polymarket._resolution({"closed": True, "outcomePrices": ["1", "0"]}) == "yes"
+    assert polymarket._resolution({"closed": True, "outcomePrices": ["0", "1"]}) == "no"
+    assert polymarket._resolution({"closed": True, "outcomePrices": ["0.5", "0.5"]}) == "void"
+    # Polymarket's JSON-string encoding is handled too.
+    assert polymarket._resolution({"closed": True, "outcomePrices": "[\"1\", \"0\"]"}) == "yes"
+
+
 # --------------------------------------------------------------------------- #
 # FRED
 # --------------------------------------------------------------------------- #

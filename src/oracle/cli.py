@@ -421,14 +421,48 @@ def resolve(
     if due_mode:
         due = due_forecasts(ledger, _questions_dir(root), now)
         if platform_only:
-            # Cron cannot supply an outcome; only import questions resolve for
-            # free by reading the platform later. Auto-resolution of those is a
-            # v2 connector capability, so here we surface them for attention.
-            due = [
-                f for f in due
-                if (spec := _load_spec(root, ledger.get_forecast(f).question_id))
-                and spec.origin == "import"
-            ]
+            # Auto-resolve import questions by reading the platform's settled
+            # outcome (Manifold/Polymarket/Metaculus). Only resolve when the
+            # platform has definitively settled; leave everything else pending.
+            conns = registry()
+            resolved_now: list[str] = []
+            pending: list[str] = []
+            for f in due:
+                spec = _load_spec(root, ledger.get_forecast(f).question_id)
+                if spec is None or spec.origin != "import" or not spec.linked_markets:
+                    continue  # not platform-resolvable; leave for a human/LLM session
+                link = spec.linked_markets[0]
+                conn = conns.get(link.platform)
+                get_res = getattr(conn, "get_resolution", None) if conn else None
+                if get_res is None:
+                    pending.append(f)
+                    continue
+                try:
+                    oc = get_res(link.market_id)
+                except Exception as exc:  # noqa: BLE001 — a read failure must not crash cron
+                    click.echo(f"warning: could not read resolution for {f}: {exc}", err=True)
+                    pending.append(f)
+                    continue
+                if oc is None:
+                    pending.append(f)  # platform has not settled the market yet
+                    continue
+                rec = build_resolution(
+                    ledger, root, f, oc,
+                    f"auto-resolved from {link.platform} market {link.market_id}",
+                    now, kelly_fraction=kelly_fraction,
+                )
+                ledger.append_resolution(rec)
+                resolved_now.append(f)
+                click.echo(f"Auto-resolved {f} -> {oc} (via {link.platform})")
+            for f in pending:
+                click.echo(f"pending (not yet settled on-platform): {f}")
+            if not resolved_now and not pending:
+                click.echo("Nothing due.")
+                return
+            if pending:
+                ctx.exit(_ATTENTION)
+            return
+        # Interactive --due: list everything due (incl. bespoke) for a human/LLM.
         if not due:
             click.echo("Nothing due.")
             return
