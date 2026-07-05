@@ -100,7 +100,13 @@ def render_report(
         _fmt_sydney(t.due) if t.due is not None else "" for t in rec.update_triggers
     ]
 
-    has_model = any(m.kind.startswith("model:") for m in rec.ensemble)
+    # A structured model contributed if any ensemble member is a modelling-skill
+    # output (kind contains "modelling") or a distinct model (kind "model:...").
+    model_members = [
+        m for m in rec.ensemble
+        if m.kind.startswith("model:") or "modelling" in m.kind
+    ]
+    has_model = bool(model_members)
 
     market = baselines.get("market")
     oracle_vs_market = (rec.probability - market) if market is not None else None
@@ -116,6 +122,7 @@ def render_report(
         trigger_due_sydney=trigger_due_sydney,
         raw_pool=rec.raw_pool,
         has_model=has_model,
+        model_members=model_members,
         is_update=is_update,
         stream_rows=stream_rows,
         naive_claude=baselines.get("naive-claude"),

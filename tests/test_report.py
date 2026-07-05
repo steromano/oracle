@@ -325,3 +325,25 @@ def test_pnl_handles_no_market_baselines(state_root: Path):
     # No market baselines -> nothing to trade, but the renderer must not crash.
     assert isinstance(out, str)
     assert len(out) > 0
+
+
+def test_report_shows_structured_model_when_present(state_root: Path):
+    from oracle.models import ForecastRecord, EnsembleMember, UpdateTrigger
+    spec = _spec("Q-20260101-001")
+    rec = ForecastRecord(
+        id="F-20260101-050", question_id="Q-20260101-001", stream_id="S-1", stream_seq=0,
+        probability=0.48, raw_pool={"median": 0.48},
+        ensemble=[
+            EnsembleMember(kind="method:modelling-barrier-touch", probability=0.48,
+                           crux="GBM barrier-touch to the ATH"),
+            EnsembleMember(kind="method:base-rate-outside", probability=0.50, crux="outside view"),
+        ],
+        pool_method="median", resilience="moderate", ensemble_iqr=0.02, process_audit={},
+        effort_tier="standard", tools_used=["python-model"], evidence_log="", evidence_hash="a" * 64,
+        committed_at=datetime(2026, 1, 2, tzinfo=UTC), git_sha="x",
+        update_triggers=[UpdateTrigger(type="date", check="c", due=None)],
+    )
+    out = render_report(rec, spec, {"naive-claude": 0.5}, stream=[rec])
+    assert "structured model" in out
+    assert "modelling-barrier-touch" in out  # the model member is shown
+    assert "No structured model" not in out

@@ -26,7 +26,11 @@ The pooled estimate is **{{ prob_decimal }}** via `{{ rec.pool_method }}` over {
 
 ## 5. Model output
 
-{% if has_model %}A structured model contributed to the ensemble; its sensitivity analysis is included in §4 above.{% else %}No structured model was used for this forecast.{% endif %}
+{% if model_members %}A structured model contributed to the ensemble (sensitivity in §4 above):
+{% for m in model_members %}
+- `{{ m.kind }}` → **{{ "%.2f" | format(m.probability) }}** — {{ m.crux }}
+{%- endfor %}
+{% else %}No structured model was used for this forecast.{% endif %}
 
 ## 6. Ensemble
 
