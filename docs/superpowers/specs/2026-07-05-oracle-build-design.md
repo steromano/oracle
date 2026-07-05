@@ -111,3 +111,45 @@ No network in the suite. Live verification is `oracle connectors doctor` + `scri
 Implementation plan authored via the writing-plans skill, then executed via `/ultracode`
 multi-agent orchestration (user-requested). The loop-first build order above defines the
 plan's phase boundaries.
+
+---
+
+## 6. Amendment v1.1 (2026-07-05, after first live runs)
+
+Two operating-policy changes decided after running the harness on three questions
+(GPT-6, AU-unemployment, IMO-2026). These **supersede** the spec where they conflict.
+
+### 6.1 Oracle forecasts are market-independent (supersedes §5.7 step 3, §9.3)
+
+The committed/scored probability is formed **only** from Oracle's own research, base
+rates, models, and reasoning — a prediction-market price is **never** an ensemble
+member, on any question. When a market exists it is recorded as an **additional
+benchmark** (`oracle baseline record <qid> market <p>`), alongside `naive-claude`.
+
+- **Rationale:** the goal is to measure how well the harness reconstructs the market
+  *on its own* (treating a liquid market as an efficient reference). Folding the market
+  into the forecast (the old AIA "model+market" rule) destroys that measurement. AIA's
+  decision-quality blend is still available as an *optional, clearly-labelled* derived
+  number for decision support, but it is never the scored object.
+- **Consequence:** every question is effectively "input-blind" to the market. §5.13 blind
+  mode is now only about *sourcing discipline* — for blind (imported) questions Oracle
+  must not even *look up* the market; for non-blind questions it may look it up, but only
+  to (a) adopt battle-tested resolution wording and (b) record the price as a benchmark.
+- **Debt from the first runs:** F-20260705-001 (GPT-6) and -003 (IMO) included the market
+  as an ensemble member and are therefore contaminated under this policy; they should be
+  re-issued market-independent (new stream points superseding the originals).
+
+### 6.2 Canonical naive-Claude prompt (fixes §9.2 gap)
+
+The naive baseline is elicited from a clean subagent (fresh context, no tools/evidence/
+lessons) using **exactly** this prompt, then recorded via `oracle baseline record`:
+
+> Think like a superforecaster and answer with a probability. [question spec]
+
+Previously this prompt was ad hoc/inline; it is now fixed in CLAUDE.md hard rule 2.
+
+### 6.3 Skills fleshed out (supersedes the "minimal stubs" decision in §1)
+
+The 13 `SKILL.md` files are elaborated from stubs into lightweight playbooks (≤2 pages
+each, 1 preferred), informed by a retrospective on the first runs and light best-practice
+research. CLAUDE.md remains the routing spine.

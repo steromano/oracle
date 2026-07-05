@@ -48,10 +48,13 @@ Load a skill's `SKILL.md` on demand when the workflow reaches it.
 
 1. **Never state a final probability before `oracle commit` succeeds.** The CLI
    stamps `committed_at` and the git SHA; you cannot backdate or forge them.
-2. **Always produce the naive-Claude baseline *before* research** (§9.2): elicit
-   a clean forecast from the spec text alone, then
-   `oracle baseline record <qid> naive-claude <p>`. Eliciting it first prevents
-   contamination from research context.
+2. **Always produce the naive-Claude baseline *before* research** (§9.2). Elicit
+   it from a clean subagent (fresh context — no tools, no evidence, no lessons)
+   using **exactly** this prompt:
+   > Think like a superforecaster and answer with a probability. [question spec]
+
+   Then `oracle baseline record <qid> naive-claude <p>`. Eliciting it first
+   prevents contamination from research context.
 3. **Read `knowledge/lessons.md` before forecasting**; cite lesson numbers when
    they influence the forecast.
 4. **Round only at the very end.** Work in fine-grained probabilities
@@ -61,14 +64,27 @@ Load a skill's `SKILL.md` on demand when the workflow reaches it.
 6. **Audits are outcome-blind** (§5.12). Never look up a resolved outcome when
    writing or aggregating a process audit; audits are outcome-blind by
    construction, and outcomes feed only the statistical recalibration fit.
+7. **Oracle forecasts are market-independent** (design amendment §6.1). The
+   committed probability comes only from your own research, base rates, models,
+   and reasoning — a prediction-market price is **never** an ensemble member.
+   When a market exists, record it as a *benchmark* alongside naive-claude
+   (`oracle baseline record <qid> market <p>`), never as a forecast input. The
+   whole point is to measure how well the harness reconstructs the market
+   unaided; folding it in destroys that signal. You may report an optional,
+   clearly-labelled Oracle+market blend as decision support, but it is never the
+   committed number.
 
 ## Blind mode
 
-If `oracle status` reports blind questions, the §5.13 restrictions apply for
-this session: no market/aggregator lookups for those questions, no market
-ensemble member, and the red-team leakage check fails a commit whose evidence
-log cites market odds. Blinding is enforced in Python (`data/sealed/` is
-read-only to you; only the CLI reads it), and this is belt-and-braces on top.
+Because forecasts are market-independent everywhere (hard rule 7), no question
+ever uses a market ensemble member. Blind mode adds a **sourcing** restriction on
+top: for blind (imported) questions you must not even *look up* the market or any
+prediction-market aggregator. A non-blind question **may** be looked up, but only
+to (a) adopt its battle-tested resolution wording and (b) record its price as a
+benchmark — never to inform the forecast. The red-team leakage check fails a
+commit whose evidence log cites market odds on a blind question. Blinding is
+enforced in Python (`data/sealed/` is read-only to you; only the CLI reads it),
+and this is belt-and-braces on top.
 
 ## The `oracle` CLI surface
 
