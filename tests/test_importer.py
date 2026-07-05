@@ -109,6 +109,35 @@ def test_fetch_and_filter_drops_below_threshold(monkeypatch, state_root: Path):
     assert ids == ["m-good"]
 
 
+class _RaisingConnector:
+    """A connector whose fetch_candidates errors (e.g. an API 403/5xx)."""
+
+    name = "metaculus"
+
+    def available(self) -> bool:
+        return True
+
+    def fetch_candidates(self, closes_within_days: int, filters: dict):
+        raise RuntimeError("403 Forbidden")
+
+
+def test_fetch_and_filter_skips_erroring_connector(monkeypatch, state_root: Path, capsys):
+    # A failing connector must not abort the batch: healthy platforms still yield.
+    good = _candidate(platform="manifold", market_id="m-good")
+    _patch_registry(
+        monkeypatch,
+        {
+            "metaculus": _RaisingConnector(),
+            "manifold": _FakeConnector("manifold", [(good, 50)]),
+        },
+    )
+    out = importer.fetch_and_filter(
+        14, ["metaculus", "manifold"], {}, state_root / "data" / "questions"
+    )
+    assert [c.market_id for c in out] == ["m-good"]
+    assert "skipping connector 'metaculus'" in capsys.readouterr().err
+
+
 def test_fetch_and_filter_excludes_categories(monkeypatch, state_root: Path):
     macro = _candidate(market_id="m-macro", category="macro")
     sport = _candidate(market_id="m-sport", category="sports")

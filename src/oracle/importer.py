@@ -20,6 +20,7 @@ so the question is deduplicable and later unsealable, but with no price.
 
 from __future__ import annotations
 
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -55,7 +56,19 @@ def fetch_and_filter(
         conn = conns.get(platform)
         if conn is None or not conn.available():
             continue
-        for cand in conn.fetch_candidates(closes_within_days, filters):
+        try:
+            candidates = list(conn.fetch_candidates(closes_within_days, filters))
+        except Exception as exc:  # noqa: BLE001 — one bad connector must not abort the batch
+            # Graceful degradation (§6.6): a connector that errors at fetch time
+            # (e.g. an API returning 403/5xx) is skipped so other platforms still
+            # contribute candidates, mirroring the "unavailable connector" path.
+            print(
+                f"warning: skipping connector '{platform}': "
+                f"{type(exc).__name__}: {exc}",
+                file=sys.stderr,
+            )
+            continue
+        for cand in candidates:
             key = (cand.platform, cand.market_id)
             if key in already or key in seen:
                 continue
