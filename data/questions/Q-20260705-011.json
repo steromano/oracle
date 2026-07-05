@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260705-011",
+  "title": "Will France win the 2026 FIFA World Cup?",
+  "question_text": "Will France win the 2026 FIFA World Cup?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "This market will resolve according to the national team that wins the 2026 FIFA World Cup.\n\nIf at any point it becomes impossible for this team to win the FIFA World Cup based on the rules of FIFA (e.g., they are eliminated in the knockout stage), this market will resolve immediately to “No”.\n\nIf the 2026 FIFA World Cup is permanently canceled or has not been completed by October 13, 2026, 11:59 PM this market will resolve to “Other”.\n\nThe primary resolution source will be official information from FIFA, however, a consensus of credible reporting may also be used.",
+  "resolution_source": "polymarket market 558936",
+  "resolution_deadline": "2026-07-20T00:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 14,
+  "linked_markets": [
+    {
+      "platform": "polymarket",
+      "market_id": "558936",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/polymarket-558936.json",
+  "created_at": "2026-07-05T04:30:41.899869Z",
+  "created_by": "import"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260705-010",
+  "title": "Will Harvey Weinstein be sentenced to less than 5 years in prison?",
+  "question_text": "Will Harvey Weinstein be sentenced to less than 5 years in prison?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "This market will resolve according to the prison sentence, if any, imposed on Harvey Weinstein as part of his ongoing New York retrial (People of the State of New York v. Harvey Weinstein) by July 31, 2026, 11:59 PM ET.\n\nThis market will resolve immediately based on the first sentence rendered in this case, regardless of any appeals. If Weinstein is found not guilty, there is a mistrial, or if the first sentencing does not include any jail or prison time, this market will resolve to \"No Prison Time.\"\n\nIf no sentencing takes place by July 31, 2026, 11:59 PM ET, this market will also resolve to \"No Prison Time.\"\n\nIf the sentence falls exactly between two brackets, then this market will resolve to the higher range bracket.\n\nFor the purposes of this market, it does not matter whether the sentence is concurrent or consecutive to any existing sentence Weinstein is already serving. The market will resolve based on the total prison sentence imposed in this case.\n\nThe primary resolution source for this market will be official information from the New York court system or other involved U.S. government sources; however, a consensus of credible reporting may also be used.",
+  "resolution_source": "polymarket market 544093",
+  "resolution_deadline": "2025-12-31T12:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": -186,
+  "linked_markets": [
+    {
+      "platform": "polymarket",
+      "market_id": "544093",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/polymarket-544093.json",
+  "created_at": "2026-07-05T04:30:41.899869Z",
+  "created_by": "import"
+}

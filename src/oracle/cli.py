@@ -488,14 +488,30 @@ def _approve_candidates(root: Path, cands: list) -> list[str]:
         conn = conns.get(c.platform)
         if conn is None:
             continue
-        snap = conn.fetch_snapshot(c.market_id)
-        seal(root, c, snap)
-        spec = candidate_to_spec(c, now, _next_question_seq(root, now))
-        d = _questions_dir(root)
-        d.mkdir(parents=True, exist_ok=True)
-        (d / f"{spec.id}.json").write_text(
-            spec.model_dump_json(indent=2), encoding="utf-8"
-        )
+        try:
+            snap = conn.fetch_snapshot(c.market_id)
+            if snap.price is None:
+                # No community/market price to seal -> no untainted Oracle-vs-market
+                # benchmark is possible, so don't import it (§9.3 / user policy).
+                click.echo(
+                    f"skipping {c.platform}:{c.market_id} — no market price available "
+                    f"(cannot benchmark)"
+                )
+                continue
+            seal(root, c, snap)
+            spec = candidate_to_spec(c, now, _next_question_seq(root, now))
+            d = _questions_dir(root)
+            d.mkdir(parents=True, exist_ok=True)
+            (d / f"{spec.id}.json").write_text(
+                spec.model_dump_json(indent=2), encoding="utf-8"
+            )
+        except Exception as exc:  # noqa: BLE001 — one bad candidate must not abort the batch
+            click.echo(
+                f"warning: skipping {c.platform}:{c.market_id} "
+                f"({type(exc).__name__}: {exc})",
+                err=True,
+            )
+            continue
         created.append(spec.id)
         click.echo(f"Approved {c.platform}:{c.market_id} -> {spec.id}")
     return created
@@ -539,6 +555,8 @@ def import_fetch(
 @click.option("--all", "approve_all", is_flag=True)
 @click.option("--platform", default="manifold,metaculus")
 @click.option("--closes-within", "closes_within", default="14d")
+@click.option("--min-traders", "min_traders", default=None, type=int)
+@click.option("--min-forecasters", "min_forecasters", default=None, type=int)
 @click.pass_context
 def import_approve(
     ctx: click.Context,
@@ -546,12 +564,20 @@ def import_approve(
     approve_all: bool,
     platform: str,
     closes_within: str,
+    min_traders: int | None,
+    min_forecasters: int | None,
 ) -> None:
     """Create specs + seal snapshots for approved candidates (re-fetches to resolve ids)."""
     root: Path = ctx.obj["root"]
     platforms = [p.strip() for p in platform.split(",") if p.strip()]
+    # Honor the same quality thresholds as `fetch` so the requested ids resurface.
+    filters: dict = {}
+    if min_traders is not None:
+        filters["min_traders"] = min_traders
+    if min_forecasters is not None:
+        filters["min_forecasters"] = min_forecasters
     cands = fetch_and_filter(
-        _parse_days(closes_within), platforms, {}, _questions_dir(root)
+        _parse_days(closes_within), platforms, filters, _questions_dir(root)
     )
     if not approve_all:
         wanted = set(candidate_ids)
