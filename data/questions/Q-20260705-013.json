@@ -1,0 +1,19 @@
+{
+  "id": "Q-20260705-013",
+  "title": "A Millennium Prize Problem solved by end of 2027",
+  "question_text": "Will a solution to any of the six unsolved Clay Millennium Prize Problems (P vs NP, Riemann Hypothesis, Hodge Conjecture, Yang-Mills existence & mass gap, Navier-Stokes existence & smoothness, Birch-Swinnerton-Dyer) be published and gain broad acceptance in the mathematical community on or before 2027-12-31?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "Resolves YES if, on or before 2027-12-31, a proof (or disproof/counterexample) of one of the six unsolved Clay Millennium Prize Problems is published and recognized by expert consensus as correct/resolving the problem. A merely claimed or unverified preprint does NOT count; genuine community acceptance is required, but a formal Clay Prize award is NOT (its 2-year waiting period would make a 2027 resolution impossible). Resolves NO otherwise.",
+  "resolution_source": "Mathematical community consensus as reflected in expert commentary, major mathematics venues/journals, and Clay Mathematics Institute statements",
+  "resolution_deadline": "2027-12-31T23:59:00Z",
+  "edge_cases": "The Poincare Conjecture (resolved ~2003) is excluded. A partial result or special case does not count. A disputed or not-yet-verified proof resolves NO; if a claim is genuinely unresolvable by the deadline it resolves NO (not VOID, since 'not accepted by the deadline' is a clean NO). Only the six listed problems count.",
+  "domain": "science",
+  "horizon_days": 544,
+  "linked_markets": [],
+  "origin": "user",
+  "blind": false,
+  "sealed_snapshot": null,
+  "created_at": "2026-07-05T04:56:34.245107Z",
+  "created_by": "ste.romano83@gmail.com"
+}

@@ -1,0 +1,78 @@
+{
+  "id": "F-20260705-009",
+  "question_id": "Q-20260705-013",
+  "stream_id": "F-20260705-009",
+  "stream_seq": 0,
+  "probability": 0.04,
+  "raw_pool": {
+    "median": 0.04,
+    "trimmed": 0.0475,
+    "geo_odds": 0.0408
+  },
+  "ensemble": [
+    {
+      "kind": "method:base-rate-outside",
+      "probability": 0.02,
+      "crux": "26 years, 0 of the six solved; acceptance lag compresses a 1.5y window"
+    },
+    {
+      "kind": "evidence-slice:ai-structural",
+      "probability": 0.09,
+      "crux": "AI+formalization cracked Erdos problems in 2026 (Tao-verified); a tractable Millennium candidate is the tail"
+    },
+    {
+      "kind": "method:news-skeptic",
+      "probability": 0.03,
+      "crux": "circulating claims unverified; experts call 2027 near-impossible; acceptance is slow"
+    },
+    {
+      "kind": "evidence-slice:full",
+      "probability": 0.05,
+      "crux": "synthesis: real AI accelerant vs the Erdos->Millennium gap and the acceptance bar"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "fragile",
+  "ensemble_iqr": 0.0325,
+  "process_audit": {
+    "spec_unambiguous": true,
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "market_excluded_from_forecast": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch",
+    "manifold"
+  ],
+  "evidence_log": "data/evidence/F-20260705-009.md",
+  "evidence_hash": "57145f924dc697b078d0f265795b062d46d3992fd7a2d2b8771dd12143160922",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T04:59:19.614866Z",
+  "git_sha": "ea1d2293eb0d9e027a63b7cd7f80f8da2fd94913",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "A credible proof of any of the six enters serious community review",
+      "due": "2027-01-01T00:00:00Z"
+    },
+    {
+      "type": "event",
+      "check": "AI/formalization milestone on a research-level problem approaching Millennium difficulty",
+      "due": "2027-06-30T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Final resolution check",
+      "due": "2027-12-31T23:59:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}
