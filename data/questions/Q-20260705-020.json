@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260705-020",
+  "title": "Putin out as President of Russia by December 31, 2026?",
+  "question_text": "Putin out as President of Russia by December 31, 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "This market will resolve to “Yes” if Vladimir Putin ceases to be President of Russia for any period of time between market creation and the specified date (ET). Otherwise, this market will resolve to “No”.\n\nAn announcement of Vladimir Putin's resignation/removal before this market's end date will immediately resolve this market to \"Yes\", regardless of when the announced resignation/removal goes into effect.\n\nIf the specified individual is detained, effectively removed from the specified position, or otherwise permanently prevented from fulfilling the duties of the specified position within this market’s timeframe, it will qualify for a “Yes” resolution.\n\nThe resolution source for this market will be official information from Vladimir Putin and the government of Russia; however, a consensus of credible reporting may also be used.",
+  "resolution_source": "polymarket market 560317",
+  "resolution_deadline": "2026-12-31T18:30:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 179,
+  "linked_markets": [
+    {
+      "platform": "polymarket",
+      "market_id": "560317",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/polymarket-560317.json",
+  "created_at": "2026-07-05T07:41:51.160606Z",
+  "created_by": "import"
+}
