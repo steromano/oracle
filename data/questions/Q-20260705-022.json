@@ -1,0 +1,21 @@
+{
+  "id": "Q-20260705-022",
+  "title": "Meta (META) sets a new all-time high in 2027",
+  "question_text": "Will Meta Platforms' share price (NASDAQ: META) set a new all-time high (trade above its prior all-time high) at any point during calendar year 2027 (Jan 1 - Dec 31, 2027)?",
+  "q_type": "binary",
+  "thresholds": [
+    796.0
+  ],
+  "resolution_criteria": "Resolves YES if META trades intraday above its prior all-time high on any regular NASDAQ session in calendar 2027, where the prior all-time high is META's highest-ever intraday price as continuously updated (currently ~$796, Aug 2025; if META sets higher highs before 2027, YES requires exceeding those). Resolves NO if META never exceeds its running all-time high during 2027.",
+  "resolution_source": "NASDAQ intraday price via a market-data provider (yfinance / stooq)",
+  "resolution_deadline": "2027-12-31T21:00:00Z",
+  "edge_cases": "Intraday touch counts (not just closing). Regular sessions only. A new ATH set in 2026 does NOT resolve this YES (must occur in 2027, exceeding the running ATH). If META executes a split, compare on a split-adjusted basis. Delisting/acquisition at an implied price above the running ATH resolves YES.",
+  "domain": "finance",
+  "horizon_days": 909,
+  "linked_markets": [],
+  "origin": "user",
+  "blind": false,
+  "sealed_snapshot": null,
+  "created_at": "2026-07-05T08:47:10.363982Z",
+  "created_by": "ste.romano83@gmail.com"
+}

@@ -1,0 +1,78 @@
+{
+  "id": "F-20260705-018",
+  "question_id": "Q-20260705-022",
+  "stream_id": "F-20260705-018",
+  "stream_seq": 0,
+  "probability": 0.48,
+  "raw_pool": {
+    "median": 0.48,
+    "trimmed": 0.4775,
+    "geo_odds": 0.4775
+  },
+  "ensemble": [
+    {
+      "kind": "method:modelling-barrier-touch",
+      "probability": 0.48,
+      "crux": "GBM barrier-touch to 796 ~0.55 by end-2027, discounted for the 2027-specific + running-ATH framing"
+    },
+    {
+      "kind": "method:base-rate-outside",
+      "probability": 0.5,
+      "crux": "megacap recovering to a new ATH from a ~27% drawdown within ~2 years"
+    },
+    {
+      "kind": "evidence-slice:fundamental",
+      "probability": 0.45,
+      "crux": "strong ad core + AI optionality vs AI-capex/margin concerns and current weakness"
+    },
+    {
+      "kind": "evidence-slice:full",
+      "probability": 0.48,
+      "crux": "synthesis of model + fundamentals"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "moderate",
+  "ensemble_iqr": 0.0125,
+  "process_audit": {
+    "spec_unambiguous": true,
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "modelling_ran": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch",
+    "python-model"
+  ],
+  "evidence_log": "data/evidence/F-20260705-018.md",
+  "evidence_hash": "c3bb3bf3c0c4dc0f75da29ca89913718456afba4d06ee303f12015d5f603f6bf",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T08:49:37.443187Z",
+  "git_sha": "7033b1d280b159222f38cb767d6d3ffe45a33525",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "release",
+      "check": "META quarterly earnings/guidance (AI-capex ROI + ad revenue)",
+      "due": "2026-10-31T00:00:00Z"
+    },
+    {
+      "type": "market_move",
+      "check": "META closes above  (approaching ATH) or below  (drawdown deepens)",
+      "due": "2027-01-01T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "End-2027 resolution",
+      "due": "2027-12-31T21:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}
