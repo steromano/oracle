@@ -202,10 +202,21 @@ def test_registry_has_all_connectors():
 def test_free_connectors_are_available_without_keys(monkeypatch):
     monkeypatch.delenv("FRED_API_KEY", raising=False)
     reg = registry()
-    # Manifold/Metaculus/Polymarket need no auth for reads.
+    # Manifold/Polymarket need no auth for reads.
     assert reg["manifold"].available() is True
-    assert reg["metaculus"].available() is True
     assert reg["polymarket"].available() is True
+
+
+def test_metaculus_availability_gated_on_token(monkeypatch):
+    # Metaculus now requires an API token even for reads; degrade cleanly without one.
+    from oracle.connectors.metaculus import MetaculusConnector
+
+    monkeypatch.delenv("METACULUS_API_TOKEN", raising=False)
+    assert MetaculusConnector().available() is False
+    monkeypatch.setenv("METACULUS_API_TOKEN", "tok-123")
+    conn = MetaculusConnector()
+    assert conn.available() is True
+    assert conn._headers()["Authorization"] == "Token tok-123"
 
 
 def test_doctor_reports_without_leaking_secrets(monkeypatch):

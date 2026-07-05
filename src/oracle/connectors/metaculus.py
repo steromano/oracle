@@ -11,6 +11,7 @@ BlindCandidate). Parsing is pure so tests exercise it offline.
 
 from __future__ import annotations
 
+import os
 from datetime import datetime, timezone
 
 import httpx
@@ -21,6 +22,8 @@ from . import BlindCandidate, MarketMatch, PricePoint, SealedSnapshot
 BASE_URL = "https://www.metaculus.com/api2"
 SITE_URL = "https://www.metaculus.com"
 _TIMEOUT = 20.0
+_TOKEN_ENV = "METACULUS_API_TOKEN"
+_USER_AGENT = "oracle-forecasting-harness/0.1"
 
 
 def _now() -> datetime:
@@ -104,14 +107,29 @@ def _parse_snapshot(question: dict, ts: datetime | None = None) -> SealedSnapsho
 class MetaculusConnector:
     name = "metaculus"
 
-    def __init__(self, base_url: str = BASE_URL) -> None:
+    def __init__(self, base_url: str = BASE_URL, token: str | None = None) -> None:
         self.base_url = base_url
+        # Metaculus now requires an auth token even for read endpoints (the old
+        # unauthenticated api2 access returns 403). Fall back to the env var so
+        # the connector degrades cleanly when no key is configured.
+        self.token = token if token is not None else os.environ.get(_TOKEN_ENV)
 
     def available(self) -> bool:
-        return True
+        return bool(self.token)
+
+    def _headers(self) -> dict:
+        h = {"User-Agent": _USER_AGENT}
+        if self.token:
+            h["Authorization"] = f"Token {self.token}"
+        return h
 
     def _get(self, path: str, params: dict | None = None) -> dict:
-        resp = httpx.get(f"{self.base_url}{path}", params=params, timeout=_TIMEOUT)
+        resp = httpx.get(
+            f"{self.base_url}{path}",
+            params=params,
+            headers=self._headers(),
+            timeout=_TIMEOUT,
+        )
         resp.raise_for_status()
         return resp.json()
 

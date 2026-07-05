@@ -122,8 +122,11 @@ def doctor() -> list[tuple[str, bool, str]]:
 
 
 def _detail(name: str, available: bool) -> str:
-    if name in ("manifold", "metaculus", "polymarket"):
+    if name in ("manifold", "polymarket"):
         return "no auth required" if available else "unavailable"
+    if name == "metaculus":
+        # Metaculus now requires an API token even for read endpoints.
+        return "METACULUS_API_TOKEN set" if available else "METACULUS_API_TOKEN not set"
     if name == "fred":
         return "FRED_API_KEY set" if os.getenv("FRED_API_KEY") else "FRED_API_KEY not set"
     if name == "asknews":

@@ -32,6 +32,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import click
+from dotenv import load_dotenv
 
 from oracle.aggregation import pool
 from oracle.benchmarks import get_baselines, record_baseline
@@ -144,6 +145,10 @@ def cli(ctx: click.Context, root: str | None) -> None:
     """Oracle — deterministic forecasting harness CLI (§6.7)."""
     ctx.ensure_object(dict)
     resolved = root or os.environ.get("ORACLE_ROOT") or os.getcwd()
+    # Load secrets from .env (never committed) so connectors see their keys.
+    # Real environment variables always take precedence over .env values.
+    load_dotenv(Path(resolved) / ".env")
+    load_dotenv(Path.cwd() / ".env")
     ctx.obj["root"] = Path(resolved)
 
 
