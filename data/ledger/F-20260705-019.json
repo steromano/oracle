@@ -1,0 +1,76 @@
+{
+  "id": "F-20260705-019",
+  "question_id": "Q-20260705-023",
+  "stream_id": "F-20260705-019",
+  "stream_seq": 0,
+  "probability": 0.03,
+  "raw_pool": {
+    "median": 0.03,
+    "trimmed": 0.03,
+    "geo_odds": 0.0325
+  },
+  "ensemble": [
+    {
+      "kind": "method:base-rate-outside",
+      "probability": 0.03,
+      "crux": ">=10% at a specific point is rare (~2-3x in 75y) and needs a severe recession from a benign 4.2% start"
+    },
+    {
+      "kind": "method:forecasts-current",
+      "probability": 0.02,
+      "crux": "FOMC ~4.3% 2027, Sahm 0.10, NY Fed recession risk ~15%; bearish tail only ~6.5% by 2028"
+    },
+    {
+      "kind": "evidence-slice:structural-ai-tail",
+      "probability": 0.07,
+      "crux": "severe AI-displacement + recession could compound; U-3 stickiness + point-in-time framing cap it"
+    },
+    {
+      "kind": "evidence-slice:full",
+      "probability": 0.03,
+      "crux": "synthesis"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "moderate",
+  "ensemble_iqr": 0.0125,
+  "process_audit": {
+    "spec_unambiguous": true,
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-019.md",
+  "evidence_hash": "ac172b2424d69152c7f35b55cbfefc896c7320fc8d7c34f51ba6d0be1ec85ca9",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T09:00:47.552688Z",
+  "git_sha": "cbfda101c342023eaed50148c7679ce0b2ba260b",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "release",
+      "check": "US U-3 breaches 6.0% (recession underway)",
+      "due": "2027-06-01T00:00:00Z"
+    },
+    {
+      "type": "event",
+      "check": "Sahm-rule / NBER recession trigger",
+      "due": "2027-09-01T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "December 2027 U-3 print",
+      "due": "2028-01-15T00:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}

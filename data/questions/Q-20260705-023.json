@@ -1,0 +1,21 @@
+{
+  "id": "Q-20260705-023",
+  "title": "US unemployment rate >= 10% at end of 2027",
+  "question_text": "Will the US headline unemployment rate (BLS U-3, seasonally adjusted) for December 2027 be >= 10.0%?",
+  "q_type": "binary",
+  "thresholds": [
+    10.0
+  ],
+  "resolution_criteria": "Resolves YES if the US headline unemployment rate (BLS U-3, seasonally adjusted) for December 2027 - as first published in the BLS Employment Situation release (~early January 2028) - is 10.0% or higher. Resolves NO otherwise. This is a point-in-time reading for December 2027, NOT whether any month during 2027 reached 10%.",
+  "resolution_source": "BLS Employment Situation, U-3 seasonally-adjusted headline rate, December 2027 (as first published)",
+  "resolution_deadline": "2028-01-15T23:59:00Z",
+  "edge_cases": "Use the headline U-3 SA figure as first published for December 2027. If a government shutdown or data disruption delays the December print, use the nearest available month's SA U-3. Trend series and later revisions are not used. Broader measures (U-6) do not count.",
+  "domain": "macro",
+  "horizon_days": 559,
+  "linked_markets": [],
+  "origin": "user",
+  "blind": false,
+  "sealed_snapshot": null,
+  "created_at": "2026-07-05T08:59:05.507810Z",
+  "created_by": "ste.romano83@gmail.com"
+}
