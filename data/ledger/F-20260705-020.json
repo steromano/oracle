@@ -1,0 +1,77 @@
+{
+  "id": "F-20260705-020",
+  "question_id": "Q-20260705-013",
+  "stream_id": "F-20260705-009",
+  "stream_seq": 1,
+  "probability": 0.03,
+  "raw_pool": {
+    "median": 0.025,
+    "trimmed": 0.025,
+    "geo_odds": 0.0222
+  },
+  "ensemble": [
+    {
+      "kind": "method:base-rate-only",
+      "probability": 0.02,
+      "crux": "1 solved+accepted in 26y; acceptance lags solving by years"
+    },
+    {
+      "kind": "method:news-evidence",
+      "probability": 0.03,
+      "crux": "real 2026 AI-math momentum but adjacent/lower-tier; markets target 2030+, not 2027"
+    },
+    {
+      "kind": "method:inside-view-maximalist",
+      "probability": 0.04,
+      "crux": "bold mechanism-driven, but the acceptance-lag wall caps it even in the aggressive scenario"
+    },
+    {
+      "kind": "method:skeptic",
+      "probability": 0.01,
+      "crux": "hardest problems resist; claims are crankery; AI-Erdos is a different tier"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "fragile",
+  "ensemble_iqr": 0.015,
+  "process_audit": {
+    "independent_members": true,
+    "bold_member_included": true,
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-020.md",
+  "evidence_hash": "5424f8c16f96cbc9c991fa72b9ba2d99d3bcaef6b4e58aa71d6d3950cddcc266",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T09:14:46.277858Z",
+  "git_sha": "3f98b67854e261519cae8326b7741b99e7245475",
+  "supersedes": null,
+  "update_rationale": "Re-run with genuinely independent ensemble members incl. a bold inside-view maximalist (methodology fix for base-rate collapse). Independent members still cluster 0.01-0.04; the low forecast is robust. Slightly down from 0.04 -> 0.03.",
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "A credible proof of any of the six enters serious community review",
+      "due": "2027-01-01T00:00:00Z"
+    },
+    {
+      "type": "event",
+      "check": "AI/formalization milestone on a research-level problem approaching Millennium difficulty",
+      "due": "2027-06-30T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Final resolution check",
+      "due": "2027-12-31T23:59:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}
