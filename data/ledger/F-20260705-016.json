@@ -1,0 +1,56 @@
+{
+  "id": "F-20260705-016",
+  "question_id": "Q-20260705-020",
+  "stream_id": "F-20260705-016",
+  "stream_seq": 0,
+  "probability": 0.045,
+  "raw_pool": {
+    "median": 0.045,
+    "trimmed": 0.045,
+    "geo_odds": 0.0447
+  },
+  "ensemble": [
+    {
+      "kind": "method:actuarial-coup",
+      "probability": 0.04,
+      "crux": "73yo; death/coup/resignation over a ~6-month window to end-2026"
+    },
+    {
+      "kind": "evidence-slice:tail",
+      "probability": 0.05,
+      "crux": "war-context fragility (cf. 2023 Prigozhin) is a small tail; regime consolidated since"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "moderate",
+  "ensemble_iqr": 0.005,
+  "process_audit": {
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-016.md",
+  "evidence_hash": "63eb7d909f77c826c70632e4d0a7ef4096962b27789bd9e53d0c644639466922",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T07:49:22.714481Z",
+  "git_sha": "19159fdf9a904384cf209fbf38b92920f723675f",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "date",
+      "check": "Year-end resolution",
+      "due": "2026-12-31T00:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}

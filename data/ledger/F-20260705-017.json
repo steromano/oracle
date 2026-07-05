@@ -1,0 +1,61 @@
+{
+  "id": "F-20260705-017",
+  "question_id": "Q-20260705-021",
+  "stream_id": "F-20260705-017",
+  "stream_seq": 0,
+  "probability": 0.03,
+  "raw_pool": {
+    "median": 0.03,
+    "trimmed": 0.03,
+    "geo_odds": 0.0283
+  },
+  "ensemble": [
+    {
+      "kind": "method:not-running",
+      "probability": 0.02,
+      "crux": "Tarcisio announced he will seek RE-ELECTION as Sao Paulo governor, not run for president"
+    },
+    {
+      "kind": "evidence-slice:re-entry-tail",
+      "probability": 0.04,
+      "crux": "a late switch back into the presidential race is a small tail"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "moderate",
+  "ensemble_iqr": 0.01,
+  "process_audit": {
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-017.md",
+  "evidence_hash": "194afd7d50f5a1fc2c3e96fe7ff98a403b80e5fac4904e6220dd32459d169c99",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T07:49:23.323309Z",
+  "git_sha": "19159fdf9a904384cf209fbf38b92920f723675f",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "Any Tarcisio switch into the presidential race by candidacy deadline",
+      "due": "2026-08-15T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Election result (first round 4 Oct)",
+      "due": "2026-10-04T00:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}

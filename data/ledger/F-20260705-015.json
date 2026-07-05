@@ -1,0 +1,71 @@
+{
+  "id": "F-20260705-015",
+  "question_id": "Q-20260705-019",
+  "stream_id": "F-20260705-015",
+  "stream_seq": 0,
+  "probability": 0.22,
+  "raw_pool": {
+    "median": 0.22,
+    "trimmed": 0.22,
+    "geo_odds": 0.2117
+  },
+  "ensemble": [
+    {
+      "kind": "method:decapitation-war-econ",
+      "probability": 0.28,
+      "crux": "Khamenei killed; active war; inflation 50-70%, GDP -6.1% - extreme regime stress"
+    },
+    {
+      "kind": "method:regime-resilience",
+      "probability": 0.15,
+      "crux": "regimes often consolidate after external attack; a funeral/succession implies continuity; talks imply the regime still governs"
+    },
+    {
+      "kind": "evidence-slice:full",
+      "probability": 0.22,
+      "crux": "severe destabilization vs demonstrated coercive resilience"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "fragile",
+  "ensemble_iqr": 0.065,
+  "process_audit": {
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-015.md",
+  "evidence_hash": "d4c3a008ce63b03b73e2238ca2a068944c22983d9aca7650fc3e6d39944972e4",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T07:49:22.089291Z",
+  "git_sha": "19159fdf9a904384cf209fbf38b92920f723675f",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "Succession stability after Khamenei vs elite fracture",
+      "due": "2026-09-01T00:00:00Z"
+    },
+    {
+      "type": "event",
+      "check": "War outcome / negotiated settlement",
+      "due": "2026-10-15T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Year-end resolution",
+      "due": "2026-12-31T00:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}

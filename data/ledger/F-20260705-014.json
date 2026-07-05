@@ -1,0 +1,61 @@
+{
+  "id": "F-20260705-014",
+  "question_id": "Q-20260705-018",
+  "stream_id": "F-20260705-014",
+  "stream_seq": 0,
+  "probability": 0.035,
+  "raw_pool": {
+    "median": 0.035,
+    "trimmed": 0.035,
+    "geo_odds": 0.0317
+  },
+  "ensemble": [
+    {
+      "kind": "method:formal-headofstate-absurd",
+      "probability": 0.02,
+      "crux": "a US envoy formally holding Venezuela's head-of-state office is near-absurd even with US control"
+    },
+    {
+      "kind": "evidence-slice:us-runs-vz-tail",
+      "probability": 0.05,
+      "crux": "US removed Maduro and 'runs' Venezuela; a Grenell-led arrangement is a small tail"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "moderate",
+  "ensemble_iqr": 0.015,
+  "process_audit": {
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-014.md",
+  "evidence_hash": "2b2bfb389305f0397ebd4e50d75da4029a0b08d31ddefa99e5dcdd81acd4a7ac",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T07:49:21.473534Z",
+  "git_sha": "19159fdf9a904384cf209fbf38b92920f723675f",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "Who formally holds Venezuela's head-of-state office",
+      "due": "2026-11-01T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Year-end resolution",
+      "due": "2026-12-31T00:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}

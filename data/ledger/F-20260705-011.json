@@ -1,0 +1,71 @@
+{
+  "id": "F-20260705-011",
+  "question_id": "Q-20260705-015",
+  "stream_id": "F-20260705-011",
+  "stream_seq": 0,
+  "probability": 0.28,
+  "raw_pool": {
+    "median": 0.28,
+    "trimmed": 0.28,
+    "geo_odds": 0.2778
+  },
+  "ensemble": [
+    {
+      "kind": "method:war-reality",
+      "probability": 0.4,
+      "crux": "an active 2026 US-Iran war; a limited US ground invasion began 17 Mar 2026"
+    },
+    {
+      "kind": "method:control-bar-skeptic",
+      "probability": 0.18,
+      "crux": "'establish control over Iran' is a high (occupation) bar; focus shifted to Israel/Lebanon; de-escalation talks in Doha"
+    },
+    {
+      "kind": "evidence-slice:full",
+      "probability": 0.28,
+      "crux": "war + limited invasion elevate it far above the historical base rate, tempered by the move toward a deal"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "fragile",
+  "ensemble_iqr": 0.11,
+  "process_audit": {
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-011.md",
+  "evidence_hash": "e46ec698a669aa1d3c975721712be97c39121d0e5dfb59977390776d6a2eca03",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T07:49:19.616514Z",
+  "git_sha": "19159fdf9a904384cf209fbf38b92920f723675f",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "Escalation to a control-seeking ground offensive vs a negotiated deal",
+      "due": "2026-09-01T00:00:00Z"
+    },
+    {
+      "type": "event",
+      "check": "Collapse or success of the Doha US-Iran talks",
+      "due": "2026-10-01T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Year-end resolution",
+      "due": "2026-12-31T00:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}

@@ -1,0 +1,61 @@
+{
+  "id": "F-20260705-012",
+  "question_id": "Q-20260705-016",
+  "stream_id": "F-20260705-012",
+  "stream_seq": 0,
+  "probability": 0.03,
+  "raw_pool": {
+    "median": 0.03,
+    "trimmed": 0.03,
+    "geo_odds": 0.0262
+  },
+  "ensemble": [
+    {
+      "kind": "method:base-rate",
+      "probability": 0.02,
+      "crux": "China has never invaded; ~0 base rate over 70+ years"
+    },
+    {
+      "kind": "method:intel-assessment",
+      "probability": 0.03,
+      "crux": "US intelligence (2026) says an imminent attack is unlikely; gray-zone preferred; huge economic cost"
+    },
+    {
+      "kind": "evidence-slice:full",
+      "probability": 0.03,
+      "crux": "gray-zone pressure, not invasion, in 2026"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "moderate",
+  "ensemble_iqr": 0.005,
+  "process_audit": {
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-012.md",
+  "evidence_hash": "7d2cd1361b50ae3f62f6e22097a2d55e87737b554b77c81ce2810a07921901af",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T07:49:20.224224Z",
+  "git_sha": "19159fdf9a904384cf209fbf38b92920f723675f",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "date",
+      "check": "Year-end resolution",
+      "due": "2026-12-31T00:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}

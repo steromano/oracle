@@ -1,0 +1,66 @@
+{
+  "id": "F-20260705-013",
+  "question_id": "Q-20260705-017",
+  "stream_id": "F-20260705-013",
+  "stream_seq": 0,
+  "probability": 0.03,
+  "raw_pool": {
+    "median": 0.03,
+    "trimmed": 0.03,
+    "geo_odds": 0.0311
+  },
+  "ensemble": [
+    {
+      "kind": "method:reversal",
+      "probability": 0.02,
+      "crux": "Trump reversed at Davos 21 Jan 2026 - no force/tariffs; framework respects Danish sovereignty"
+    },
+    {
+      "kind": "method:base-rate",
+      "probability": 0.03,
+      "crux": "peaceful acquisition of inhabited territory in a year is ~0; Denmark/Greenland: 'not for sale'"
+    },
+    {
+      "kind": "evidence-slice:tail",
+      "probability": 0.05,
+      "crux": "the administration's unconventional posture leaves a small tail"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "moderate",
+  "ensemble_iqr": 0.015,
+  "process_audit": {
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-013.md",
+  "evidence_hash": "47436d2b20306f45d8bfbc03dd2f180f76c4fcfa06663d97421ca454b359ebad",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T07:49:20.851027Z",
+  "git_sha": "19159fdf9a904384cf209fbf38b92920f723675f",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "Any move back toward annexation vs a defense-only deal",
+      "due": "2026-10-01T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Year-end resolution",
+      "due": "2026-12-31T00:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}
