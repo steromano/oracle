@@ -1,9 +1,15 @@
-"""Metaculus connector (free API).
+"""Metaculus connector (requires an API token as of 2026).
 
-API docs: https://www.metaculus.com/api2/
-Endpoints used:
-  GET /api2/questions/?search=...        -> {"results": [question, ...]}
-  GET /api2/questions/{id}/              -> question
+API docs: https://www.metaculus.com/api/
+Endpoints used (all return "post" objects wrapping a nested ``question``):
+  GET /api2/questions/?statuses=open&forecast_type=binary  -> {"results": [post, ...]}
+  GET /api2/questions/{id}/                                 -> post
+
+Auth: reads now require ``Authorization: Token <METACULUS_API_TOKEN>`` (the old
+unauthenticated api2 returns 403). The response schema was also overhauled: each
+result is a *post* with id/title/nr_forecasters/projects, and the forecast
+``question`` (type, scheduled_close_time, resolution_criteria, recency-weighted
+community aggregation) is nested under ``post["question"]``.
 
 The community prediction is read only into a SealedSnapshot (never into a
 BlindCandidate). Parsing is pure so tests exercise it offline.
@@ -30,75 +36,92 @@ def _now() -> datetime:
     return datetime.now(timezone.utc)
 
 
-def _url(question: dict) -> str:
-    page = question.get("page_url") or f"/questions/{question['id']}/"
-    if page.startswith("http"):
-        return page
-    return f"{SITE_URL}{page}"
+# Metaculus v2 wraps each question in a "post". A post carries id/title/
+# nr_forecasters/projects; the forecast question (type, close time, resolution
+# criteria, community aggregation) is nested under post["question"].
 
 
-def _community_price(question: dict) -> float | None:
-    cp = question.get("community_prediction")
-    if not cp:
-        return None
-    full = cp.get("full") if isinstance(cp, dict) else None
-    if isinstance(full, dict) and full.get("q2") is not None:
-        return float(full["q2"])
-    if isinstance(cp, (int, float)):
-        return float(cp)
+def _q(post: dict) -> dict:
+    return post.get("question") or {}
+
+
+def _url(post: dict) -> str:
+    page = post.get("url") or f"/questions/{post['id']}/"
+    return page if page.startswith("http") else f"{SITE_URL}{page}"
+
+
+def _close_time(post: dict) -> str | None:
+    q = _q(post)
+    return q.get("scheduled_close_time") or post.get("scheduled_close_time")
+
+
+def _community_price(post: dict) -> float | None:
+    """Community median for a binary, from the recency-weighted aggregation.
+
+    Empty until Metaculus reveals the CP (``cp_reveal_time``); returns None then.
+    """
+    rw = (_q(post).get("aggregations") or {}).get("recency_weighted") or {}
+    for bucket in (rw.get("latest") or {}, (rw.get("history") or [{}])[-1]):
+        if not isinstance(bucket, dict):
+            continue
+        for key in ("centers", "means"):
+            vals = bucket.get(key)
+            if isinstance(vals, list) and vals and isinstance(vals[0], (int, float)):
+                return float(vals[0])
     return None
 
 
-def _category(question: dict) -> str:
-    cats = question.get("categories") or []
+def _category(post: dict) -> str:
+    cats = (post.get("projects") or {}).get("category") or []
     if cats and isinstance(cats[0], dict):
-        return cats[0].get("short_name", "other")
+        return cats[0].get("slug") or cats[0].get("name") or "other"
     return "other"
 
 
-def _parse_market_match(question: dict) -> MarketMatch:
+def _parse_market_match(post: dict) -> MarketMatch:
     return MarketMatch(
         platform="metaculus",
-        market_id=str(question["id"]),
-        title=question["title"],
-        url=_url(question),
+        market_id=str(post["id"]),
+        title=post["title"],
+        url=_url(post),
     )
 
 
 def _parse_list(data: dict) -> list[MarketMatch]:
-    return [_parse_market_match(q) for q in data.get("results", [])]
+    return [_parse_market_match(p) for p in data.get("results", [])]
 
 
-def _parse_price_point(question: dict, ts: datetime | None = None) -> PricePoint:
-    price = _community_price(question)
+def _parse_price_point(post: dict, ts: datetime | None = None) -> PricePoint:
+    price = _community_price(post)
     if price is None:
-        raise ValueError(f"no community prediction for metaculus question {question.get('id')}")
+        raise ValueError(f"no community prediction for metaculus post {post.get('id')}")
     return PricePoint(
         platform="metaculus",
-        market_id=str(question["id"]),
+        market_id=str(post["id"]),
         price=price,
         ts=ts or _now(),
     )
 
 
-def _parse_candidate(question: dict) -> BlindCandidate:
+def _parse_candidate(post: dict) -> BlindCandidate:
+    close = _close_time(post)
     return BlindCandidate(
         platform="metaculus",
-        market_id=str(question["id"]),
-        title=question["title"],
-        resolution_criteria=question.get("resolution_criteria", ""),
-        close_date=dtparser.isoparse(question["close_time"]),
-        category=_category(question),
+        market_id=str(post["id"]),
+        title=post["title"],
+        resolution_criteria=_q(post).get("resolution_criteria", ""),
+        close_date=dtparser.isoparse(close),
+        category=_category(post),
     )
 
 
-def _parse_snapshot(question: dict, ts: datetime | None = None) -> SealedSnapshot:
-    price = _community_price(question)
+def _parse_snapshot(post: dict, ts: datetime | None = None) -> SealedSnapshot:
+    price = _community_price(post)
     return SealedSnapshot(
         platform="metaculus",
-        market_id=str(question["id"]),
+        market_id=str(post["id"]),
         price=float(price) if price is not None else 0.0,
-        n_forecasters=int(question.get("number_of_forecasters", 0)),
+        n_forecasters=int(post.get("nr_forecasters", 0)),
         liquidity=None,
         ts=ts or _now(),
     )
@@ -142,22 +165,34 @@ class MetaculusConnector:
     def fetch_candidates(
         self, closes_within_days: int, filters: dict
     ) -> list[BlindCandidate]:
-        limit = int(filters.get("max", 20))
+        want = int(filters.get("max", 20))
+        min_forecasters = int(filters.get("min_forecasters", 20))
+        now = _now()
+        # Ordered by close time ascending, bounded to future closes server-side
+        # (``statuses=open`` alone still surfaces legacy past-close questions).
+        # No community prediction is requested (with_cp omitted) — candidates are
+        # blind by construction. We still re-check the window client-side.
         data = self._get(
             "/questions/",
-            {"status": "open", "type": "binary", "limit": limit,
-             "order_by": "close_time"},
+            {"statuses": "open", "forecast_type": "binary", "limit": 100,
+             "order_by": "scheduled_close_time",
+             "scheduled_close_time__gt": now.strftime("%Y-%m-%dT%H:%M:%SZ")},
         )
-        cutoff = _now().timestamp() + closes_within_days * 86_400
-        min_forecasters = int(filters.get("min_forecasters", 20))
+        now_ts = now.timestamp()
+        cutoff = now_ts + closes_within_days * 86_400
         out: list[BlindCandidate] = []
-        for q in data.get("results", []):
-            if int(q.get("number_of_forecasters", 0)) < min_forecasters:
+        for post in data.get("results", []):
+            if int(post.get("nr_forecasters", 0)) < min_forecasters:
                 continue
-            close = q.get("close_time")
-            if not close or dtparser.isoparse(close).timestamp() > cutoff:
+            close = _close_time(post)
+            if not close:
                 continue
-            out.append(_parse_candidate(q))
+            close_ts = dtparser.isoparse(close).timestamp()
+            if close_ts <= now_ts or close_ts > cutoff:
+                continue
+            out.append(_parse_candidate(post))
+            if len(out) >= want:
+                break
         return out
 
     def fetch_snapshot(self, market_id: str) -> SealedSnapshot:
