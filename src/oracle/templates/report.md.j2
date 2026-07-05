@@ -68,19 +68,14 @@ The pooled estimate is **{{ prob_decimal }}** via `{{ rec.pool_method }}` over {
 
 The committed forecast is **market-independent**; these are yardsticks only, never inputs.
 
-{% if naive_claude is not none -%}
-- **naive-claude:** {{ "%.2f" | format(naive_claude) }} (does the harness beat just asking Claude?)
-{% else -%}
-- **naive-claude:** not recorded.
+{% if naive_claude is not none %}- **naive-claude:** {{ "%.2f" | format(naive_claude) }} (does the harness beat just asking Claude?)
+{% else %}- **naive-claude:** not recorded.
 {% endif -%}
-{% if base_rate_only is not none %}
-- **base-rate-only:** {{ "%.2f" | format(base_rate_only) }} (does inside-view research add over the outside view?)
-{%- endif %}
-{% if market is not none %}
-- **market:** {{ "%.2f" | format(market) }} — **Oracle − market gap: {{ "%+.2f" | format(oracle_vs_market) }}** (how far the independent forecast sits from the crowd).
-{%- else %}
-- **market:** no linked market for this question.
-{%- endif %}
+{% if base_rate_only is not none %}- **base-rate-only:** {{ "%.2f" | format(base_rate_only) }} (does inside-view research add over the outside view?)
+{% endif -%}
+{% if market is not none %}- **market:** {{ "%.2f" | format(market) }} — **Oracle − market gap: {{ "%+.2f" | format(oracle_vs_market) }}** (how far the independent forecast sits from the crowd).
+{% else %}- **market:** no linked market for this question.
+{% endif %}
 
 ## 9. Provenance
 
