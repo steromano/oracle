@@ -31,9 +31,9 @@
         {% endif %}
       </td>
       <td>{{ r.oracle_pct }}</td>
-      <td>{% if r.naive_claude is not none %}{{ '%.2f'|format(r.naive_claude) }}{% endif %}</td>
-      <td>{% if r.base_rate_only is not none %}{{ '%.2f'|format(r.base_rate_only) }}{% endif %}</td>
-      <td>{% if r.market is not none %}{{ '%.2f'|format(r.market) }}{% endif %}</td>
+      <td>{% if r.naive_claude is not none %}{{ '%.0f'|format(r.naive_claude * 100) }}%{% endif %}</td>
+      <td>{% if r.base_rate_only is not none %}{{ '%.0f'|format(r.base_rate_only * 100) }}%{% endif %}</td>
+      <td>{% if r.market is not none %}{{ '%.0f'|format(r.market * 100) }}%{% endif %}</td>
       <td>{{ r.resolution }}</td>
       <td>{{ r.deadline }}</td>
     </tr>
