@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Oracle — {{ spec.title }}{% endblock %}
+{% block content %}
+<h1>{{ spec.title }}</h1>
+
+<div class="card">
+  <p>{{ spec.question_text }}</p>
+  <p class="muted">
+    Domain: {{ spec.domain }} &middot;
+    Deadline: {{ spec.resolution_deadline.date().isoformat() }} &middot;
+    Origin: {{ spec.origin }}{% if spec.blind %} (blind){% endif %}
+  </p>
+</div>
+
+<h2>Update history</h2>
+<table class="stream">
+  <thead>
+    <tr><th>Seq</th><th>Probability</th><th>Committed</th><th>Rationale</th></tr>
+  </thead>
+  <tbody>
+    {% for h in history %}
+    <tr>
+      <td>{{ h.seq }}</td>
+      <td>{{ h.pct }}</td>
+      <td>{{ h.committed_at }}</td>
+      <td>{{ h.rationale }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Report</h2>
+<div class="report">
+  {{ report_html|safe }}
+</div>
+{% endblock %}

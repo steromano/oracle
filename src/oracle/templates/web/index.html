@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %}Oracle — Ledger{% endblock %}
+{% block content %}
+<h1>Forecast ledger</h1>
+
+{% if rows %}
+<table>
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Domain</th>
+      <th>Status</th>
+      <th>Oracle</th>
+      <th>naive-claude</th>
+      <th>base-rate-only</th>
+      <th>market</th>
+      <th>Resolution</th>
+      <th>Deadline</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for r in rows %}
+    <tr>
+      <td><a href="{{ url_for('question', qid=r.qid) }}">{{ r.title }}</a></td>
+      <td>{{ r.domain }}</td>
+      <td>
+        {% if r.status == 'Open' %}
+          <span class="pill open">Open</span>
+        {% else %}
+          <span class="pill resolved">Resolved</span>
+        {% endif %}
+      </td>
+      <td>{{ r.oracle_pct }}</td>
+      <td>{% if r.naive_claude is not none %}{{ '%.2f'|format(r.naive_claude) }}{% endif %}</td>
+      <td>{% if r.base_rate_only is not none %}{{ '%.2f'|format(r.base_rate_only) }}{% endif %}</td>
+      <td>{% if r.market is not none %}{{ '%.2f'|format(r.market) }}{% endif %}</td>
+      <td>{{ r.resolution }}</td>
+      <td>{{ r.deadline }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p class="muted">No forecasts committed yet.</p>
+{% endif %}
+
+<h2>Pending questions (awaiting forecast in Claude Code)</h2>
+<div class="note">
+  Queued questions are <strong>not</strong> forecast by this web app. Forecasting runs
+  in a Claude Code session (interactive, or the scheduled Level-2 brain) that reads
+  <code>data/inbox/</code>. This layer is deterministic-only and never invokes an LLM.
+</div>
+{% if pending %}
+<ul>
+  {% for name in pending %}
+  <li><code>{{ name }}</code></li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="muted">Nothing queued.</p>
+{% endif %}
+
+<p><a class="btn" href="{{ url_for('new') }}">Queue a new question</a></p>
+{% endblock %}

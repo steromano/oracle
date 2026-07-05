@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Oracle{% endblock %}</title>
+  <style>
+    :root { --fg: #1a1a1a; --muted: #666; --line: #ddd; --accent: #2b5cb8; --bg: #fafafa; }
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--fg); background: var(--bg); margin: 0; line-height: 1.5;
+    }
+    header {
+      background: #fff; border-bottom: 1px solid var(--line);
+      padding: 0.75rem 1.5rem; display: flex; align-items: baseline; gap: 1.5rem;
+    }
+    header .brand { font-weight: 700; font-size: 1.1rem; }
+    header a { color: var(--accent); text-decoration: none; }
+    header a:hover { text-decoration: underline; }
+    main { max-width: 1000px; margin: 0 auto; padding: 1.5rem; }
+    h1 { font-size: 1.5rem; margin-top: 0; }
+    h2 { font-size: 1.15rem; border-bottom: 1px solid var(--line); padding-bottom: 0.25rem; }
+    table { border-collapse: collapse; width: 100%; background: #fff; }
+    th, td { text-align: left; padding: 0.4rem 0.6rem; border-bottom: 1px solid var(--line); font-size: 0.9rem; }
+    th { color: var(--muted); font-weight: 600; }
+    .muted { color: var(--muted); }
+    .pill { display: inline-block; padding: 0.05rem 0.5rem; border-radius: 1rem; font-size: 0.8rem; }
+    .pill.open { background: #e7f0ff; color: #23508c; }
+    .pill.resolved { background: #eee; color: #555; }
+    .btn {
+      display: inline-block; background: var(--accent); color: #fff; padding: 0.5rem 1rem;
+      border-radius: 6px; text-decoration: none; font-weight: 600; border: none; cursor: pointer;
+    }
+    .btn:hover { background: #234a94; }
+    .card { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+    .note { background: #fff8e1; border: 1px solid #f0d98a; border-radius: 8px; padding: 0.75rem 1rem; margin: 1rem 0; font-size: 0.9rem; }
+    label { display: block; margin: 0.75rem 0 0.25rem; font-weight: 600; }
+    input, textarea { width: 100%; padding: 0.5rem; border: 1px solid var(--line); border-radius: 6px; font: inherit; }
+    textarea { min-height: 6rem; resize: vertical; }
+    .report { background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 1rem 1.5rem; overflow-x: auto; }
+    .report table { width: auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">Oracle</span>
+    <a href="{{ url_for('index') }}">Home</a>
+    <a href="{{ url_for('new') }}">New question</a>
+  </header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

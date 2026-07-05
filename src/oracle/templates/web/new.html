@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Oracle — New question{% endblock %}
+{% block content %}
+<h1>Queue a new question</h1>
+
+<div class="note">
+  Submitting this form only <strong>queues</strong> the question into
+  <code>data/inbox/</code>. This web layer is deterministic-only and does not run
+  the forecasting pipeline. A Claude Code session (interactive, or the scheduled
+  Level-2 brain) reads the inbox, builds the QuestionSpec, and commits a forecast.
+</div>
+
+<form method="post" action="{{ url_for('new') }}">
+  <label for="question">Question <span class="muted">(required)</span></label>
+  <textarea id="question" name="question" required placeholder="Will X happen by Y?"></textarea>
+
+  <label for="deadline">Resolution deadline <span class="muted">(optional)</span></label>
+  <input id="deadline" name="deadline" type="date">
+
+  <label for="domain">Domain <span class="muted">(optional)</span></label>
+  <input id="domain" name="domain" type="text" placeholder="macro, tech, politics, ...">
+
+  <p style="margin-top:1rem;"><button class="btn" type="submit">Queue question</button></p>
+</form>
+{% endblock %}
