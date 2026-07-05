@@ -23,6 +23,7 @@ REPO = Path(__file__).resolve().parent.parent
 SKILL_NAMES = [
     "question-intake",
     "triage",
+    "hypothesize",
     "research",
     "base-rates",
     "modelling",
@@ -106,7 +107,7 @@ def test_skill_frontmatter_and_spec_pointer():
         assert re.search(
             r"^description:\s*\S", text, re.M
         ), f"{name}: no description in frontmatter"
-        assert "See spec" in text and "§5" in text, f"{name}: no spec pointer"
+        assert "See spec" in text and "§" in text, f"{name}: no spec pointer"
 
 
 def test_knowledge_files_exist():

@@ -214,6 +214,26 @@ def test_report_contains_fixed_structure(state_root: Path):
     assert "deadbeefcafe" in out
 
 
+def test_report_is_self_contained_and_embeds_evidence(state_root: Path):
+    spec = _spec("Q-20260101-001")
+    rec = _forecast(
+        fid="F-20260101-001",
+        question_id="Q-20260101-001",
+        probability=0.63,
+        committed_at=datetime(2026, 1, 2, 3, 0, tzinfo=UTC),
+    )
+    evidence = "## Latest known state\n- [A] 2026-01-01 dated fact from primary source."
+    baselines = {"naive-claude": 0.5, "base-rate-only": 0.4, "market": 0.55}
+    out = render_report(rec, spec, baselines, stream=[rec], evidence_body=evidence)
+
+    # Evidence is embedded verbatim — the report is self-contained (no file link).
+    assert "dated fact from primary source" in out
+    assert "data/evidence/x.md" not in out  # no cross-file link to the evidence log
+    # All three benchmarks + the Oracle-minus-market gap (0.63 - 0.55 = +0.08).
+    assert "base-rate-only" in out and "market" in out
+    assert "+0.08" in out
+
+
 def test_report_renders_dates_in_sydney(state_root: Path):
     spec = _spec("Q-20260101-001")
     rec = _forecast(

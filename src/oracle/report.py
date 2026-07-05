@@ -73,12 +73,15 @@ def render_report(
     spec: QuestionSpec,
     baselines: dict[str, float],
     stream: list[ForecastRecord],
+    evidence_body: str = "",
 ) -> str:
     """Render the fixed §5.10 markdown report for a committed forecast.
 
     ``rec`` is the current (latest) forecast point; ``stream`` is the full
-    seq-ordered history for update rendering; ``baselines`` supplies at least the
-    ``naive-claude`` line eyeballed on every forecast (§9.2).
+    seq-ordered history for update rendering; ``baselines`` supplies the benchmark
+    lines (naive-claude, base-rate-only, market) eyeballed on every forecast (§9.2).
+    ``evidence_body`` is the full text of the evidence log, embedded verbatim so the
+    report is self-contained (no cross-file links).
     """
     ordered = sorted(stream, key=lambda r: r.stream_seq)
     is_update = len(ordered) > 1 or rec.supersedes is not None
@@ -99,6 +102,9 @@ def render_report(
 
     has_model = any(m.kind.startswith("model:") for m in rec.ensemble)
 
+    market = baselines.get("market")
+    oracle_vs_market = (rec.probability - market) if market is not None else None
+
     template = _ENV.get_template("report.md.j2")
     return template.render(
         rec=rec,
@@ -113,6 +119,10 @@ def render_report(
         is_update=is_update,
         stream_rows=stream_rows,
         naive_claude=baselines.get("naive-claude"),
+        base_rate_only=baselines.get("base-rate-only"),
+        market=market,
+        oracle_vs_market=oracle_vs_market,
+        evidence_body=evidence_body.strip(),
     )
 
 

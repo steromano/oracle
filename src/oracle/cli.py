@@ -689,7 +689,13 @@ def report(ctx: click.Context, fid: str) -> None:
         raise click.ClickException(f"no question spec for {rec.question_id!r}")
     baselines = get_baselines(root, rec.question_id)
     stream = ledger.stream(rec.question_id)
-    md = render_report(rec, spec, baselines, stream)
+    # Embed the evidence log verbatim so the report is self-contained (no links).
+    evidence_body = ""
+    if rec.evidence_log:
+        ev_path = root / rec.evidence_log
+        if ev_path.is_file():
+            evidence_body = ev_path.read_text(encoding="utf-8")
+    md = render_report(rec, spec, baselines, stream, evidence_body=evidence_body)
     out = root / "reports" / f"{fid}.md"
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(md, encoding="utf-8")

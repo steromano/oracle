@@ -35,7 +35,7 @@ Read the user's message and route:
 
 | The user… | Workflow | Skills |
 |---|---|---|
-| asks a question about the future | **forecast** | `question-intake` → `triage` → `research` → `base-rates` → `modelling` → `ensemble` → `red-team` → `calibrate-and-commit` → `report` (skills 1–9, in order) |
+| asks a question about the future | **forecast** | `question-intake` → `triage` → `hypothesize` → `research` → `base-rates` → `modelling` → `ensemble` → `red-team` → `calibrate-and-commit` → `report` (in order) |
 | says "resolve" / "resolve due forecasts" | **resolve** | `resolve` (skill 10) |
 | says "retrospect" / "review performance" | **retrospect** | `retrospect` (skill 11) |
 | says "import questions" | **import** | `import-questions` (skill 12) |

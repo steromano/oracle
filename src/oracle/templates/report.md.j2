@@ -14,19 +14,19 @@
 
 ## 2. TL;DR
 
-The pooled estimate is **{{ prob_decimal }}** via `{{ rec.pool_method }}` over {{ rec.ensemble | length }} ensemble member(s). See the evidence log (`{{ rec.evidence_log }}`) for the full narrative.
+The pooled estimate is **{{ prob_decimal }}** via `{{ rec.pool_method }}` over {{ rec.ensemble | length }} market-independent ensemble member(s). Full evidence and reasoning are embedded in §4 below — this report is self-contained.
 
 ## 3. Outside view
 
-Reference classes and base-rate anchors are recorded in the evidence log (`{{ rec.evidence_log }}`).
+{% if base_rate_only is not none %}Outside-view (base-rate-only) anchor: **{{ "%.2f" | format(base_rate_only) }}**. {% endif %}Reference classes, base rates, and their sourcing are detailed inline in §4 (Evidence & reasoning).
 
-## 4. Inside view
+## 4. Evidence & reasoning
 
-Key evidence for and against, with citations, is recorded in the evidence log (`{{ rec.evidence_log }}`).
+{% if evidence_body %}{{ evidence_body }}{% else %}_No evidence log was recorded for this forecast._{% endif %}
 
 ## 5. Model output
 
-{% if has_model %}A structured model contributed to the ensemble; see the evidence log for sensitivity analysis.{% else %}No structured model was used for this forecast.{% endif %}
+{% if has_model %}A structured model contributed to the ensemble; its sensitivity analysis is included in §4 above.{% else %}No structured model was used for this forecast.{% endif %}
 
 ## 6. Ensemble
 
@@ -64,13 +64,23 @@ Key evidence for and against, with citations, is recorded in the evidence log (`
 {% endfor %}
 {% endif %}
 
-## 8. Benchmark
+## 8. Benchmarks
+
+The committed forecast is **market-independent**; these are yardsticks only, never inputs.
 
 {% if naive_claude is not none -%}
-- **naive-claude** baseline for this question: {{ "%.2f" | format(naive_claude) }} (harness delta visible at a glance).
+- **naive-claude:** {{ "%.2f" | format(naive_claude) }} (does the harness beat just asking Claude?)
 {% else -%}
-- **naive-claude** baseline: not recorded for this question.
-{% endif %}
+- **naive-claude:** not recorded.
+{% endif -%}
+{% if base_rate_only is not none %}
+- **base-rate-only:** {{ "%.2f" | format(base_rate_only) }} (does inside-view research add over the outside view?)
+{%- endif %}
+{% if market is not none %}
+- **market:** {{ "%.2f" | format(market) }} — **Oracle − market gap: {{ "%+.2f" | format(oracle_vs_market) }}** (how far the independent forecast sits from the crowd).
+{%- else %}
+- **market:** no linked market for this question.
+{%- endif %}
 
 ## 9. Provenance
 
