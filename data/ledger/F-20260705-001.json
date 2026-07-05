@@ -1,0 +1,81 @@
+{
+  "id": "F-20260705-001",
+  "question_id": "Q-20260705-001",
+  "stream_id": "F-20260705-001",
+  "stream_seq": 0,
+  "probability": 0.4,
+  "raw_pool": {
+    "median": 0.4,
+    "trimmed": 0.3825,
+    "geo_odds": 0.38
+  },
+  "ensemble": [
+    {
+      "kind": "method:base-rate-trajectory",
+      "probability": 0.42,
+      "crux": "0->4/6->5/6 progression extrapolates to 6/6, but the marginal problem is the qualitatively hardest"
+    },
+    {
+      "kind": "method:news-skeptic",
+      "probability": 0.28,
+      "crux": "all 3 labs failed P6 in 2025; Epoch: the unsolved problem is much harder than anything any system has solved"
+    },
+    {
+      "kind": "evidence-slice:capability-structural",
+      "probability": 0.45,
+      "crux": "a year of RL gains + formal tooling + 3+ labs each get a shot could crack creative combinatorics"
+    },
+    {
+      "kind": "evidence-slice:full",
+      "probability": 0.38,
+      "crux": "fast trajectory vs the P6-class wall; multiple shots help; verification a mild drag"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "fragile",
+  "ensemble_iqr": 0.0725,
+  "process_audit": {
+    "spec_unambiguous": true,
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "scheduled_events_checked": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "evidence_dates_sane": true,
+    "market_excluded_from_forecast": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch",
+    "webfetch",
+    "manifold"
+  ],
+  "evidence_log": "data/evidence/F-20260705-001.md",
+  "evidence_hash": "1e1e59c8c8813b609da06b21263b8acf602a1266113b3acb638740e3229ce823",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T04:00:33.630632Z",
+  "git_sha": "4ce7286074bb1de2d172bd5687b993fbdff9d1d2",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "IMO 2026 contest held and problems released (~mid-July)",
+      "due": "2026-07-17T00:00:00Z"
+    },
+    {
+      "type": "event",
+      "check": "Lab announcements (OpenAI/DeepMind/Harmonic/others) of IMO 2026 scores + verification method",
+      "due": "2026-07-25T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Final resolution vs credible grading / IMO certification",
+      "due": "2026-09-01T06:59:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}

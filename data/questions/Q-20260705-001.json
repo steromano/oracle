@@ -1,0 +1,19 @@
+{
+  "id": "Q-20260705-001",
+  "title": "AI achieves a perfect IMO 2026 score",
+  "question_text": "Will a recognized AI system be credibly reported to have achieved a perfect score (all six problems, 42/42) at the 2026 International Mathematical Olympiad (Shanghai, July 2026), under conditions the developer represents as comparable to official contest conditions?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "Resolves YES if, by 2026-08-31, a recognized AI lab/system is reported with credible verification (official IMO certification as with DeepMind 2025, OR independent expert grading as with OpenAI 2025) to have correctly solved all six IMO 2026 problems for full marks (42/42) on the official problem set, under stated contest-comparable conditions (same problems, comparable time limit). Resolves NO if no such result by the deadline (including a repeat 5/6 gold outcome or any non-perfect score).",
+  "resolution_source": "AI lab official announcements (OpenAI, Google DeepMind, etc.), IMO official certification, and credible independent grading reports",
+  "resolution_deadline": "2026-09-01T06:59:00Z",
+  "edge_cases": "5/6 or any non-perfect score resolves NO. A claim under materially relaxed conditions (unbounded time, undeclared retrieval/tools) or without credible grading does not count; if genuinely disputed/ambiguous, lean strict (NO, or VOID if the criteria themselves prove unresolvable). Multiple labs each solving a different five still resolves NO (requires one system solving all six).",
+  "domain": "tech",
+  "horizon_days": 57,
+  "linked_markets": [],
+  "origin": "user",
+  "blind": false,
+  "sealed_snapshot": null,
+  "created_at": "2026-07-05T03:57:12.431712Z",
+  "created_by": "ste.romano83@gmail.com"
+}

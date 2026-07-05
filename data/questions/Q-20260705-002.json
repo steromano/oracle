@@ -1,0 +1,19 @@
+{
+  "id": "Q-20260705-002",
+  "title": "US government takes >=10% stake in a frontier AI lab by end-2026",
+  "question_text": "Will the US federal government hold a >=10% equity/economic ownership stake in a company generally recognized as a frontier AI lab, at any point on or before 2026-12-31?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "Resolves YES if, on or before 2026-12-31, the US federal government (directly or via a government-controlled vehicle/sovereign fund) acquires and legally holds >=10% equity/economic ownership in a company whose core business is developing frontier AI models (e.g. OpenAI, Anthropic, xAI, Mistral, SSI, Thinking Machines, and clear peers). Resolves NO if no such stake is legally effected by the deadline.",
+  "resolution_source": "Official US government announcements (White House, Treasury, Commerce), company filings/press releases, and credible reporting",
+  "resolution_deadline": "2026-12-31T23:59:00Z",
+  "edge_cases": "A >=10% stake in a diversified parent (Alphabet, Meta, Microsoft, Nvidia) does NOT count; the stake must be in a distinctly-held frontier-lab entity. 'Golden shares', board seats, or regulatory/contractual control WITHOUT >=10% equity do NOT count (explicitly excluded). A binding but unclosed agreement resolves by whether the stake is legally effected by the deadline; genuinely ambiguous cases lean NO. State-government or foreign-government stakes do not count (US federal only).",
+  "domain": "policy",
+  "horizon_days": 179,
+  "linked_markets": [],
+  "origin": "user",
+  "blind": false,
+  "sealed_snapshot": null,
+  "created_at": "2026-07-05T04:03:07.368417Z",
+  "created_by": "ste.romano83@gmail.com"
+}

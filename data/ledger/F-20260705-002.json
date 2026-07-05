@@ -1,0 +1,79 @@
+{
+  "id": "F-20260705-002",
+  "question_id": "Q-20260705-002",
+  "stream_id": "F-20260705-002",
+  "stream_seq": 0,
+  "probability": 0.07,
+  "raw_pool": {
+    "median": 0.07,
+    "trimmed": 0.0775,
+    "geo_odds": 0.0736
+  },
+  "ensemble": [
+    {
+      "kind": "method:base-rate-outside",
+      "probability": 0.06,
+      "crux": "federal >=10% equity in a named lab, legally closed in a 6-month window, is rare even amid unprecedented appetite"
+    },
+    {
+      "kind": "method:news-skeptic",
+      "probability": 0.05,
+      "crux": "live proposals are 5% / 9.9% (sub-threshold); Anthropic out; closing by year-end uncertain"
+    },
+    {
+      "kind": "evidence-slice:structural-tail",
+      "probability": 0.12,
+      "crux": "appetite + security framing could yield a bigger-than-proposed stake or >=10% of a cheaper smaller lab"
+    },
+    {
+      "kind": "evidence-slice:full",
+      "probability": 0.08,
+      "crux": "momentum toward some stake, but the >=10% bar + sub-10% structuring + closing-by-2026 keep it low"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "moderate",
+  "ensemble_iqr": 0.0325,
+  "process_audit": {
+    "spec_unambiguous": true,
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "scheduled_events_checked": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "evidence_dates_sane": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch",
+    "manifold"
+  ],
+  "evidence_log": "data/evidence/F-20260705-002.md",
+  "evidence_hash": "83a3dbcd9aebb621f1b06e057ea6d2e8c410e8743a099e5cb077d71f22abad6e",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T04:06:55.654047Z",
+  "git_sha": "b065f75445335bf4cda4ca2e193340673c16b40c",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "White House/Treasury announces or closes a federal equity stake in any frontier AI lab; verify the % against the 10% bar",
+      "due": "2026-09-30T00:00:00Z"
+    },
+    {
+      "type": "event",
+      "check": "OpenAI (or peer) government-stake deal legally closes; verify stake size vs 10%",
+      "due": "2026-11-15T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Final resolution check at end-2026",
+      "due": "2026-12-31T23:59:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}
