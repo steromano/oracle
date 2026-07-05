@@ -706,17 +706,21 @@ def report(ctx: click.Context, fid: str) -> None:
 # connectors
 # --------------------------------------------------------------------------- #
 @cli.command()
-@click.option("--host", default="127.0.0.1", help="Interface to bind (default 127.0.0.1).")
-@click.option("--port", default=8000, type=int, help="Port to listen on (default 8000).")
+@click.option("--open", "open_", is_flag=True, help="Open the generated site in a browser.")
 @click.pass_context
-def serve(ctx: click.Context, host: str, port: int) -> None:
-    """Serve the read-mostly web UI over the ledger (§3.1: intake only, no LLM)."""
-    # Imported lazily so `import oracle.cli` does not require Flask.
-    from oracle.web import create_app
+def site(ctx: click.Context, open_: bool) -> None:
+    """Render the static HTML site (ledger + per-question pages) into <root>/site."""
+    # Imported lazily so `import oracle.cli` does not require jinja/markdown here.
+    from oracle.site import render_site
 
     root: Path = ctx.obj["root"]
-    click.echo(f"Serving Oracle web UI at http://{host}:{port}")
-    create_app(root).run(host=host, port=port)
+    out = render_site(root)
+    index = out / "index.html"
+    click.echo(f"Wrote {index}")
+    if open_:
+        import webbrowser
+
+        webbrowser.open(index.resolve().as_uri())
 
 
 # --------------------------------------------------------------------------- #

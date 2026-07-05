@@ -21,7 +21,7 @@
   <tbody>
     {% for r in rows %}
     <tr>
-      <td><a href="{{ url_for('question', qid=r.qid) }}">{{ r.title }}</a></td>
+      <td><a href="{{ r.qid }}.html">{{ r.title }}</a></td>
       <td>{{ r.domain }}</td>
       <td>
         {% if r.status == 'Open' %}

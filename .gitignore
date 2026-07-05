@@ -16,3 +16,6 @@ dist/
 
 # Scratch model scripts (per-forecast scratch dirs)
 data/**/scratch/
+
+# Generated static site (regenerate with `oracle site`)
+site/

@@ -1,8 +1,8 @@
-"""Tests for the Flask web layer (oracle.web).
+"""Tests for the static site generator (oracle.site).
 
-Exercised entirely through Flask's test client — no live server, no network.
-The web layer is a read-only view over the immutable ledger (§3.1: the Python
-layer never runs the LLM forecast pipeline; forecasting is Claude-Code-driven).
+Renders into a temp directory and inspects the generated HTML files — no server,
+no network. The site is a read-only view over the immutable ledger (§3.1: the
+Python layer never runs the LLM forecast pipeline; forecasting is Claude-Code-driven).
 """
 
 from __future__ import annotations
@@ -19,7 +19,7 @@ from oracle.models import (
     ResolutionRecord,
     UpdateTrigger,
 )
-from oracle.web import create_app
+from oracle.site import render_site
 
 UTC = timezone.utc
 
@@ -105,7 +105,6 @@ def _seed(state_root: Path) -> tuple[str, str]:
     """Seed one open question and one resolved question. Returns their qids."""
     led = Ledger(state_root)
 
-    # Open question with a committed forecast + baselines.
     open_qid = "Q-20260101-001"
     _write_spec(state_root, _spec(open_qid, "Will inflation exceed target?"))
     led.append_forecast(
@@ -120,7 +119,6 @@ def _seed(state_root: Path) -> tuple[str, str]:
     record_baseline(state_root, open_qid, "base-rate-only", 0.4)
     record_baseline(state_root, open_qid, "market", 0.55)
 
-    # Resolved question.
     res_qid = "Q-20260101-002"
     _write_spec(state_root, _spec(res_qid, "Will rates be cut in Q1?"))
     res_fid = "F-20260101-002"
@@ -150,36 +148,38 @@ def _seed(state_root: Path) -> tuple[str, str]:
 
 
 def test_index_lists_questions_with_status(state_root: Path):
-    open_qid, res_qid = _seed(state_root)
-    client = create_app(state_root).test_client()
-
-    resp = client.get("/")
-    assert resp.status_code == 200
-    body = resp.get_data(as_text=True)
+    _seed(state_root)
+    out = render_site(state_root, state_root / "site")
+    body = (out / "index.html").read_text(encoding="utf-8")
     assert "Will inflation exceed target?" in body
     assert "Will rates be cut in Q1?" in body
     assert "Open" in body
     assert "Resolved" in body
     # Resolution cell shows outcome + stream_brier.
     assert "0.1600" in body
+    # Rows link to per-question static pages.
+    assert "Q-20260101-001.html" in body
 
 
-def test_question_page_shows_history_and_report(state_root: Path):
+def test_forecast_page_generated(state_root: Path):
     open_qid, _ = _seed(state_root)
-    client = create_app(state_root).test_client()
-
-    resp = client.get(f"/q/{open_qid}")
-    assert resp.status_code == 200
-    body = resp.get_data(as_text=True)
-    # Update-history element ('initial' rationale for seq 0).
+    out = render_site(state_root, state_root / "site")
+    page = out / f"{open_qid}.html"
+    assert page.is_file()
+    body = page.read_text(encoding="utf-8")
     assert "Update history" in body
-    assert "initial" in body
-    # Report content rendered from markdown (headline / benchmark line).
+    assert "initial" in body  # seq-0 rationale
+    # Embedded self-contained report content.
     assert "naive-claude" in body
     assert "moderate" in body
+    # Static back-link to the ledger.
+    assert 'href="index.html"' in body
 
 
-def test_unknown_question_404(state_root: Path):
+def test_no_page_for_unknown_question(state_root: Path):
     _seed(state_root)
-    client = create_app(state_root).test_client()
-    assert client.get("/q/Q-does-not-exist").status_code == 404
+    out = render_site(state_root, state_root / "site")
+    assert not (out / "Q-does-not-exist.html").exists()
+    # Exactly the two seeded questions get pages.
+    pages = sorted(p.name for p in out.glob("Q-*.html"))
+    assert pages == ["Q-20260101-001.html", "Q-20260101-002.html"]
