@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260705-005",
+  "title": "Will Pope Leo XIV visit another country other than Spain before September 2026?",
+  "question_text": "Will Pope Leo XIV visit another country other than Spain before September 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "This question will resolve as **Yes** if Pope Leo XIV officially visits a country other than Spain or Italy after May 18, 2026 and before September 1, 2026, according to the official [Vatican calendar of events for the Pope](https://www.vatican.va/content/leo-xiv/en/events/year.dir.html/2026.html). Merely passing through a country's airspace, landing at an airport or otherwise making a transitory visit will not count towards resolution.\n\nIf Pope Leo XIV ceases to be Pope before September 2026 this question will be **annulled**.",
+  "resolution_source": "metaculus market 43435",
+  "resolution_deadline": "2026-07-14T22:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "geopolitics",
+  "horizon_days": 9,
+  "linked_markets": [
+    {
+      "platform": "metaculus",
+      "market_id": "43435",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/metaculus-43435.json",
+  "created_at": "2026-07-05T04:12:45.689062Z",
+  "created_by": "import"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260705-004",
+  "title": "Will any host nation (USA, Mexico or Canada) reach the semifinals of the 2026 World Cup?",
+  "question_text": "Will any host nation (USA, Mexico or Canada) reach the semifinals of the 2026 World Cup?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "This question will resolve as **Yes** if one or more of the three host nations (the U.S., Canada, or Mexico) reaches the semifinals of the 2026 World Cup.",
+  "resolution_source": "metaculus market 43343",
+  "resolution_deadline": "2026-07-12T17:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "sports-entertainment",
+  "horizon_days": 7,
+  "linked_markets": [
+    {
+      "platform": "metaculus",
+      "market_id": "43343",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/metaculus-43343.json",
+  "created_at": "2026-07-05T04:12:45.689062Z",
+  "created_by": "import"
+}
