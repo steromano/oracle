@@ -120,7 +120,9 @@ def _parse_snapshot(post: dict, ts: datetime | None = None) -> SealedSnapshot:
     return SealedSnapshot(
         platform="metaculus",
         market_id=str(post["id"]),
-        price=float(price) if price is not None else 0.0,
+        # None (not 0.0) when the community prediction is hidden/unrevealed, so it
+        # never becomes a misleading market=0.00 benchmark at unseal time.
+        price=float(price) if price is not None else None,
         n_forecasters=int(post.get("nr_forecasters", 0)),
         liquidity=None,
         ts=ts or _now(),

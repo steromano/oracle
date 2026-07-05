@@ -293,8 +293,13 @@ def commit(ctx: click.Context, forecast_path: str, dry_run: bool) -> None:
     if spec is not None and spec.origin == "import":
         try:
             price = unseal_market_baseline(root, qid)
-            record_baseline(root, qid, "market", price)
-            click.echo(f"Unsealed market baseline for {qid}: {price:.4f}")
+            if price is None:
+                click.echo(
+                    f"No market baseline for {qid}: community prediction unavailable at seal time."
+                )
+            else:
+                record_baseline(root, qid, "market", price)
+                click.echo(f"Unsealed market baseline for {qid}: {price:.4f}")
         except Exception as exc:  # missing/tampered snapshot must not lose the commit
             click.echo(
                 f"warning: could not unseal market baseline for {qid}: {exc}",

@@ -65,7 +65,7 @@ class SealedSnapshot(UTCModel):
 
     platform: str
     market_id: str
-    price: float
+    price: float | None  # None when the platform's community prediction is unavailable/unrevealed
     n_forecasters: int
     liquidity: float | None
     ts: datetime

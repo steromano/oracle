@@ -126,6 +126,26 @@ def test_metaculus_parse_snapshot():
     assert snap.n_forecasters == 85
 
 
+def test_metaculus_snapshot_price_none_when_cp_hidden():
+    # Metaculus hides the community prediction until reveal; a hidden CP must
+    # seal as price=None (not 0.0) so it never becomes a bogus market=0.00.
+    post = {
+        "id": 40404,
+        "title": "Hidden-CP question",
+        "nr_forecasters": 3,
+        "projects": {"category": [{"slug": "other"}]},
+        "question": {
+            "id": 40404,
+            "type": "binary",
+            "scheduled_close_time": "2026-08-01T00:00:00Z",
+            "resolution_criteria": "…",
+            "aggregations": {"recency_weighted": {"latest": {}, "history": []}},
+        },
+    }
+    snap = metaculus._parse_snapshot(post)
+    assert snap.price is None
+
+
 # --------------------------------------------------------------------------- #
 # Polymarket
 # --------------------------------------------------------------------------- #

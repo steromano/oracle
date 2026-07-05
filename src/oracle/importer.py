@@ -127,12 +127,14 @@ def candidate_to_spec(c: BlindCandidate, now: datetime, seq: int) -> QuestionSpe
     )
 
 
-def unseal_market_baseline(root: Path, question_id: str) -> float:
+def unseal_market_baseline(root: Path, question_id: str) -> float | None:
     """Read the sealed market price for a question (CLI-only path, §5.13).
 
     Loads the question spec to find its ``sealed_snapshot`` pointer, then reads
     the sealed :class:`SealedSnapshot` and returns its price. This is the only
-    sanctioned reader of ``data/sealed/`` outside of resolution.
+    sanctioned reader of ``data/sealed/`` outside of resolution. Returns None when
+    no community prediction was captured (e.g. Metaculus hides it until reveal), so
+    the caller records no market benchmark rather than a bogus 0.00.
     """
     root = Path(root)
     spec_path = root / "data" / "questions" / f"{question_id}.json"
