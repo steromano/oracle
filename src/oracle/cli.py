@@ -306,6 +306,15 @@ def commit(ctx: click.Context, forecast_path: str, dry_run: bool) -> None:
                 err=True,
             )
 
+    # Guard: every forecast should carry a naive-claude baseline, elicited before
+    # research (§9.2). Warn (don't block) so the miss can't slip by silently.
+    if "naive-claude" not in get_baselines(root, qid):
+        click.echo(
+            f"warning: no naive-claude baseline recorded for {qid} — run "
+            f"`oracle baseline record {qid} naive-claude <p>` (§9.2).",
+            err=True,
+        )
+
 
 # --------------------------------------------------------------------------- #
 # triggers

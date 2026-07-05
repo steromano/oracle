@@ -335,3 +335,12 @@ def test_resolve_platform_only_auto_resolves_import(state_root, monkeypatch):
     assert "Auto-resolved" in res.output, res.output
     resolution = led.resolution_for(fid)
     assert resolution is not None and resolution.outcome == "yes"
+
+
+def test_commit_warns_when_no_naive_baseline(state_root, tmp_path):
+    runner = CliRunner()
+    qid = _create_question(runner, state_root)
+    fpath = _write_forecast(tmp_path, _forecast_payload(qid))
+    res = _invoke(runner, state_root, "commit", str(fpath))
+    assert res.exit_code == 0
+    assert "no naive-claude baseline" in res.output  # guard fired
