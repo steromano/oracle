@@ -14,11 +14,18 @@ an ensemble member on any question (CLAUDE.md hard rule 7, §6.1).
 
 ## Playbook
 
-1. **Spawn k independent passes** as subagent tasks (k from the effort tier,
-   typically 3–5), diversified along real axes — not adjectives:
+1. **Spawn k GENUINELY INDEPENDENT passes as isolated subagents** (k from the
+   effort tier, typically 3–5). *Critical:* each member must be its own subagent
+   that reasons/researches on its own and does **not** see the others' numbers or
+   your synthesis — otherwise you have one correlated view wearing k hats, and the
+   pool just collapses onto the base rate (see Failure modes). Diversify along
+   real axes — not adjectives:
    - **base-rate-only** — outside view, no news;
    - **news-only** — current evidence, no priors library or data series;
-   - **full-synthesis** — one control member reads the whole evidence log;
+   - **inside-view maximalist** — a deliberately **bold, high-conviction** member
+     that is *explicitly told to set the base rate aside* and reason from the
+     mechanism/scenario (e.g. "if the causal driver plays out, what's the number?").
+     Its job is to inject genuine deviation, not hedge toward the anchor;
    - the **statistical model** output when `modelling` ran;
    - optionally **one non-Claude model** via OpenRouter (cross-model
      decorrelation buys more than any prompt tweak).
@@ -52,6 +59,15 @@ an ensemble member on any question (CLAUDE.md hard rule 7, §6.1).
   signal of whether the harness reconstructs the market unaided. Never do it.
 - **Persona pseudo-diversity** — five voices on one model reading one evidence
   set is not an ensemble; diversify inputs/methods instead.
+- **Base-rate collapse** — if members are generated in a single reasoning pass
+  (correlated) and median-pooled, the committed number just sits on the base
+  rate. Symptom: tiny member spread and forecasts hugging the outside-view anchor
+  across the ledger. Fixes: genuine per-member independence (above) + the
+  inside-view-maximalist member; and note LLM ensembles are systematically
+  *under*-confident (§9.5) — the recalibration/extremization map corrects the
+  center-hugging once ≥ 50 resolutions exist. A wide member spread with a still-low
+  median is a *legitimate* robust-low result, not collapse — the test is whether
+  the members were genuinely independent.
 - **Reconciliation runaway** — one crux, one research task, one round; stop.
 - **Blind questions** — do not even look up the market (CLAUDE.md blind mode);
   the red-team leakage check fails a commit that cites market odds.
