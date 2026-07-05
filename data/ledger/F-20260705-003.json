@@ -1,0 +1,72 @@
+{
+  "id": "F-20260705-003",
+  "question_id": "Q-20260705-003",
+  "stream_id": "F-20260705-003",
+  "stream_seq": 0,
+  "probability": 0.155,
+  "raw_pool": {
+    "median": 0.155,
+    "trimmed": 0.155,
+    "geo_odds": 0.1613
+  },
+  "ensemble": [
+    {
+      "kind": "method:base-rate-90d",
+      "probability": 0.16,
+      "crux": "3 controversial officials; ~5-10%/quarter departure each -> ~1-(.93*.94*.95)"
+    },
+    {
+      "kind": "method:news-current",
+      "probability": 0.14,
+      "crux": "all three still serving as of early July 2026; Trump backing them; deputies resigning not principals"
+    },
+    {
+      "kind": "evidence-slice:shock",
+      "probability": 0.2,
+      "crux": "Hegseth most exposed (40% want him fired); a sudden firing/scandal is the tail"
+    },
+    {
+      "kind": "evidence-slice:full",
+      "probability": 0.15,
+      "crux": "under heavy pressure but principals in place; 90-day departure of >=1 is plausible-but-not-modal"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "moderate",
+  "ensemble_iqr": 0.0225,
+  "process_audit": {
+    "spec_unambiguous": false,
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-003.md",
+  "evidence_hash": "2dade851db554a9ed1e95e2328a39bf3b0def7318691a79cc2d413ab4b0b338b",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T04:21:40.685711Z",
+  "git_sha": "19ef1116fb63f975b51d207a9a14776404ae07dc",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "Any of Hegseth/Patel/RFK departs (resigns or fired)",
+      "due": "2026-07-07T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Platform resolution; VOID if criteria unresolvable",
+      "due": "2026-07-07T09:42:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}

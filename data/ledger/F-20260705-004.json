@@ -1,0 +1,77 @@
+{
+  "id": "F-20260705-004",
+  "question_id": "Q-20260705-004",
+  "stream_id": "F-20260705-004",
+  "stream_seq": 0,
+  "probability": 0.28,
+  "raw_pool": {
+    "median": 0.28,
+    "trimmed": 0.28,
+    "geo_odds": 0.278
+  },
+  "ensemble": [
+    {
+      "kind": "method:tournament-state",
+      "probability": 0.28,
+      "crux": "Canada eliminated; USA (vs Belgium) & Mexico (vs England) must each win R16 + QF to reach semis"
+    },
+    {
+      "kind": "method:skeptic",
+      "probability": 0.22,
+      "crux": "England and Belgium are strong; hosts likely fall by the QF"
+    },
+    {
+      "kind": "evidence-slice:host-advantage",
+      "probability": 0.34,
+      "crux": "home crowd, familiar conditions, favorable scheduling lift the hosts"
+    },
+    {
+      "kind": "evidence-slice:full",
+      "probability": 0.28,
+      "crux": "~0.15 each to reach semi -> ~0.28 for at least one of USA/Mexico"
+    }
+  ],
+  "pool_method": "median",
+  "market_price_used": null,
+  "calibration_map_id": null,
+  "resilience": "fragile",
+  "ensemble_iqr": 0.03,
+  "process_audit": {
+    "spec_unambiguous": true,
+    "hypotheses_generated": true,
+    "latest_state_dated": true,
+    "disconfirmation_done": true,
+    "arithmetic_verified": true,
+    "blind_sourcing_respected": true
+  },
+  "effort_tier": "standard",
+  "tools_used": [
+    "websearch"
+  ],
+  "evidence_log": "data/evidence/F-20260705-004.md",
+  "evidence_hash": "c9a8325edcddf12e9176f7e6176d94b427785f7174d28289a4a8762b5960af8c",
+  "info_cutoff": null,
+  "committed_at": "2026-07-05T04:21:41.325138Z",
+  "git_sha": "19ef1116fb63f975b51d207a9a14776404ae07dc",
+  "supersedes": null,
+  "update_rationale": null,
+  "update_triggers": [
+    {
+      "type": "event",
+      "check": "Round of 16 results (Mexico-England Jul5, USA-Belgium Jul6)",
+      "due": "2026-07-07T00:00:00Z"
+    },
+    {
+      "type": "event",
+      "check": "Quarterfinal results",
+      "due": "2026-07-11T00:00:00Z"
+    },
+    {
+      "type": "date",
+      "check": "Semifinalists determined",
+      "due": "2026-07-12T17:00:00Z"
+    }
+  ],
+  "variant": "control",
+  "blind_violated": false
+}
