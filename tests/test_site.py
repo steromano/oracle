@@ -197,6 +197,17 @@ def test_ledger_separates_user_and_import(state_root: Path):
     assert body.find("A blind imported question") > import_header_pos
 
 
+def test_render_site_prunes_orphaned_pages(state_root: Path):
+    _seed(state_root)
+    out = state_root / "site"
+    out.mkdir(parents=True, exist_ok=True)
+    stale = out / "Q-20200101-999.html"  # a question no longer in the ledger
+    stale.write_text("orphan", encoding="utf-8")
+    render_site(state_root, out)
+    assert not stale.exists()  # pruned
+    assert (out / "Q-20260101-001.html").exists()  # current page kept
+
+
 def test_no_page_for_unknown_question(state_root: Path):
     _seed(state_root)
     out = render_site(state_root, state_root / "site")

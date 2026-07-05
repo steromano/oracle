@@ -120,8 +120,14 @@ def render_site(root: Path, out_dir: Path | None = None) -> Path:
     (out_dir / "index.html").write_text(
         _ENV.get_template("index.html").render(rows=rows), encoding="utf-8"
     )
+    current = {"index.html"}
     for qid in {r["qid"] for r in rows}:
         html = _forecast_page(root, ledger, qid)
         if html is not None:
             (out_dir / f"{qid}.html").write_text(html, encoding="utf-8")
+            current.add(f"{qid}.html")
+    # Prune orphaned pages for questions no longer in the ledger.
+    for stale in out_dir.glob("*.html"):
+        if stale.name not in current:
+            stale.unlink()
     return out_dir

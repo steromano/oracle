@@ -63,6 +63,7 @@ jobs:
       - name: Import fetch (blind, auto-approve)
         env:
           FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+          METACULUS_API_TOKEN: ${{ secrets.METACULUS_API_TOKEN }}
           ASKNEWS_CLIENT_ID: ${{ secrets.ASKNEWS_CLIENT_ID }}
           ASKNEWS_CLIENT_SECRET: ${{ secrets.ASKNEWS_CLIENT_SECRET }}
         run: uv run oracle import fetch --closes-within 14d --auto-approve
@@ -77,16 +78,17 @@ jobs:
       - name: Resolve platform-resolvable imports
         run: uv run oracle resolve --due --platform-only || true
 
-      # 4. Rebuild the two scoreboards.
-      - name: Rebuild scoreboard and P&L
+      # 4. Rebuild the two scoreboards and the static site.
+      - name: Rebuild scoreboard, P&L, and static site
         run: |
           uv run oracle scoreboard --render
           uv run oracle pnl --render
+          uv run oracle site
 
       # 5. Commit + push any changed state with a [oracle-cron] message.
       - name: Commit and push state
         run: |
-          git add data reports
+          git add data reports site
           if git diff --cached --quiet; then
             echo "No state changes to commit."
           else
