@@ -1,11 +1,11 @@
 # Oracle P&L track (paper-trading vs market)
 
-_Generated 2026-07-07 04:54 AEST_
+_Generated 2026-07-08 05:00 AEST_
 
-**Caveat: N = 0 (< 30). The cumulative log-wealth curve is dominated by noise at this sample size (§9.4) — expect the first quarter to be pure luck. Do not read a trend into these numbers yet.**
+**Caveat: N = 1 (< 30). The cumulative log-wealth curve is dominated by noise at this sample size (§9.4) — expect the first quarter to be pure luck. Do not read a trend into these numbers yet.**
 
-- **Trades (market-baselined questions):** 0
-- **Bets placed (non-zero edge):** 0
+- **Trades (market-baselined questions):** 1
+- **Bets placed (non-zero edge):** 1
 - **Cumulative log-wealth:** insufficient N
 - **Hit rate:** insufficient N
 - **Average edge captured:** insufficient N

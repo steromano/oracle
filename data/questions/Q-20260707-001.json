@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260707-001",
+  "title": "Will Claude Fable 5 be a accessible in a Claude max 5x subscription on July 08 2026?",
+  "question_text": "Will Claude Fable 5 be a accessible in a Claude max 5x subscription on July 08 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market U9AOsNC60U",
+  "resolution_deadline": "2026-07-08T22:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 1,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "U9AOsNC60U",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-U9AOsNC60U.json",
+  "created_at": "2026-07-07T19:00:46.820185Z",
+  "created_by": "import"
+}

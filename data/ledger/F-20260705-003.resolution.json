@@ -1,0 +1,42 @@
+{
+  "forecast_id": "F-20260705-003",
+  "question_id": "Q-20260705-003",
+  "outcome": "no",
+  "resolved_at": "2026-07-07T19:00:48.990222Z",
+  "resolution_evidence": "auto-resolved from manifold market cyA88y5URR",
+  "scores": {
+    "brier": 0.024025,
+    "stream_brier": 0.024025,
+    "log": 0.16841865162496325
+  },
+  "baseline_scores": {
+    "always-0.5": {
+      "brier": 0.25,
+      "stream_brier": 0.25,
+      "log": 0.6931471805599453
+    },
+    "base-rate-only": {
+      "brier": 0.0256,
+      "stream_brier": 0.0256,
+      "log": 0.1743533871447778
+    },
+    "market": {
+      "brier": 0.00014239981008296555,
+      "stream_brier": 0.00014239981008296555,
+      "log": 0.012004910603529227
+    },
+    "naive-claude": {
+      "brier": 0.2025,
+      "stream_brier": 0.2025,
+      "log": 0.5978370007556204
+    }
+  },
+  "pnl": {
+    "direction": "yes",
+    "stake": 0.03619867908609785,
+    "entry_price": 0.011933139154596562,
+    "payoff": -0.03619867908609785,
+    "log_wealth_delta": -0.03687010424986509
+  },
+  "spec_defect_audit": null
+}
