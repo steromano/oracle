@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260711-001",
+  "title": "Title of the movie spoken within \"The Odyssey\"?",
+  "question_text": "Title of the movie spoken within \"The Odyssey\"?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market p8SEAAIy5E",
+  "resolution_deadline": "2026-07-16T04:23:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 4,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "p8SEAAIy5E",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-p8SEAAIy5E.json",
+  "created_at": "2026-07-11T17:54:13.028203Z",
+  "created_by": "import"
+}
