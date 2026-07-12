@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260712-002",
+  "title": "[ACX 2026] Will the winner of the 2026 FIFA World Cup be a country that has never won before?",
+  "question_text": "[ACX 2026] Will the winner of the 2026 FIFA World Cup be a country that has never won before?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market ZCdtlP2A8u",
+  "resolution_deadline": "2026-07-19T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 7,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "ZCdtlP2A8u",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-ZCdtlP2A8u.json",
+  "created_at": "2026-07-12T17:57:46.596471Z",
+  "created_by": "import"
+}
