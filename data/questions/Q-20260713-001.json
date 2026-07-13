@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260713-001",
+  "title": "Will Christopher Nolan's The Odyssey gross over $112.5 Million in its domestic opening weekend?",
+  "question_text": "Will Christopher Nolan's The Odyssey gross over $112.5 Million in its domestic opening weekend?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market Q9dc02E9SZ",
+  "resolution_deadline": "2026-07-19T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 6,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "Q9dc02E9SZ",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-Q9dc02E9SZ.json",
+  "created_at": "2026-07-13T18:42:47.254226Z",
+  "created_by": "import"
+}
