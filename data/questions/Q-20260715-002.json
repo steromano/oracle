@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260715-002",
+  "title": "Will France win the 2026 FIFA World Cup?",
+  "question_text": "Will France win the 2026 FIFA World Cup?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market XOJ8Tfrg8s2iqPFwauO8",
+  "resolution_deadline": "2026-07-20T03:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 4,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "XOJ8Tfrg8s2iqPFwauO8",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-XOJ8Tfrg8s2iqPFwauO8.json",
+  "created_at": "2026-07-15T18:05:48.576240Z",
+  "created_by": "import"
+}
