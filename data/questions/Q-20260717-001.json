@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260717-001",
+  "title": "Gemini perfect score on IMO 2026?",
+  "question_text": "Gemini perfect score on IMO 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market uIQlEUOhuS",
+  "resolution_deadline": "2026-07-30T22:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 13,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "uIQlEUOhuS",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-uIQlEUOhuS.json",
+  "created_at": "2026-07-17T18:04:40.797504Z",
+  "created_by": "import"
+}
