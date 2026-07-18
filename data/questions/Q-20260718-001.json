@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260718-001",
+  "title": "Will Claude Fable 5 be accessible in a subscription on July 31 2026?",
+  "question_text": "Will Claude Fable 5 be accessible in a subscription on July 31 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market EclnSLuAEU",
+  "resolution_deadline": "2026-07-31T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 13,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "EclnSLuAEU",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-EclnSLuAEU.json",
+  "created_at": "2026-07-18T17:55:21.031568Z",
+  "created_by": "import"
+}
