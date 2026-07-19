@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260719-002",
+  "title": "Will Lamine Yamal win The Fifa Best Young Player award at the World Cup?",
+  "question_text": "Will Lamine Yamal win The Fifa Best Young Player award at the World Cup?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market ZzI5utQOzI",
+  "resolution_deadline": "2026-07-19T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "ZzI5utQOzI",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-ZzI5utQOzI.json",
+  "created_at": "2026-07-19T17:57:05.362171Z",
+  "created_by": "import"
+}

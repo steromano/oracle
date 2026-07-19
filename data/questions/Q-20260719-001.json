@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260719-001",
+  "title": "Perfect score achieved by an AI model in the International Math Olympiad (IMO) 2026?",
+  "question_text": "Perfect score achieved by an AI model in the International Math Olympiad (IMO) 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market OAL8q0Azzl",
+  "resolution_deadline": "2026-07-31T22:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 12,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "OAL8q0Azzl",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-OAL8q0Azzl.json",
+  "created_at": "2026-07-19T17:57:05.362171Z",
+  "created_by": "import"
+}
