@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260720-003",
+  "title": "Will Sam Altman become more cautious about AGI/ASI development after having a child?",
+  "question_text": "Will Sam Altman become more cautious about AGI/ASI development after having a child?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market dIntAyAcUZ",
+  "resolution_deadline": "2026-07-31T21:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 11,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "dIntAyAcUZ",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-dIntAyAcUZ.json",
+  "created_at": "2026-07-20T18:51:37.157823Z",
+  "created_by": "import"
+}

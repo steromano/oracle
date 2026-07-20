@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260720-002",
+  "title": "Daily Coinflip",
+  "question_text": "Daily Coinflip",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market zthh5SNyzO",
+  "resolution_deadline": "2026-07-21T03:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "zthh5SNyzO",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-zthh5SNyzO.json",
+  "created_at": "2026-07-20T18:51:37.157823Z",
+  "created_by": "import"
+}

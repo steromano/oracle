@@ -1,0 +1,42 @@
+{
+  "forecast_id": "F-20260705-008",
+  "question_id": "Q-20260705-012",
+  "outcome": "no",
+  "resolved_at": "2026-07-20T18:51:38.810340Z",
+  "resolution_evidence": "auto-resolved from polymarket market 558943",
+  "scores": {
+    "brier": 0.0016,
+    "stream_brier": 0.0016,
+    "log": 0.040821994520255166
+  },
+  "baseline_scores": {
+    "always-0.5": {
+      "brier": 0.25,
+      "stream_brier": 0.25,
+      "log": 0.6931471805599453
+    },
+    "base-rate-only": {
+      "brier": 0.0016,
+      "stream_brier": 0.0016,
+      "log": 0.040821994520255166
+    },
+    "market": {
+      "brier": 0.00055225,
+      "stream_brier": 0.00055225,
+      "log": 0.02378052866540339
+    },
+    "naive-claude": {
+      "brier": 0.0016,
+      "stream_brier": 0.0016,
+      "log": 0.040821994520255166
+    }
+  },
+  "pnl": {
+    "direction": "yes",
+    "stake": 0.004224270353302612,
+    "entry_price": 0.0235,
+    "payoff": -0.004224270353302612,
+    "log_wealth_delta": -0.004233217789795504
+  },
+  "spec_defect_audit": null
+}

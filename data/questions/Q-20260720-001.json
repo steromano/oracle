@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260720-001",
+  "title": "Will Argentina win the World Cup again?",
+  "question_text": "Will Argentina win the World Cup again?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market dnyQtU0QCL",
+  "resolution_deadline": "2026-07-20T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "dnyQtU0QCL",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-dnyQtU0QCL.json",
+  "created_at": "2026-07-20T18:51:37.157823Z",
+  "created_by": "import"
+}
