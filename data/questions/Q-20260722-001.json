@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260722-001",
+  "title": "Silver below $50/ oz by close on Friday?",
+  "question_text": "Silver below $50/ oz by close on Friday?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market LRZAyzqqhP",
+  "resolution_deadline": "2026-07-24T16:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 1,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "LRZAyzqqhP",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-LRZAyzqqhP.json",
+  "created_at": "2026-07-22T18:07:07.830422Z",
+  "created_by": "import"
+}
