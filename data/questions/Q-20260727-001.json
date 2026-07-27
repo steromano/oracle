@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260727-001",
+  "title": "Will I leave the house before 11 a.m. every day in July? (Ṁ10 Bonus)",
+  "question_text": "Will I leave the house before 11 a.m. every day in July? (Ṁ10 Bonus)",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 2hl5qNhlqL",
+  "resolution_deadline": "2026-07-31T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 4,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "2hl5qNhlqL",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-2hl5qNhlqL.json",
+  "created_at": "2026-07-27T18:23:21.265526Z",
+  "created_by": "import"
+}
