@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260730-001",
+  "title": "Will Opus 5 Slay Spires better than Sol?",
+  "question_text": "Will Opus 5 Slay Spires better than Sol?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market s5sENEnERR",
+  "resolution_deadline": "2026-08-05T16:06:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 5,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "s5sENEnERR",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-s5sENEnERR.json",
+  "created_at": "2026-07-30T18:13:47.544016Z",
+  "created_by": "import"
+}
