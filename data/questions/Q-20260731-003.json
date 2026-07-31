@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260731-003",
+  "title": "Will I avoid media and distracting apps before 1 p.m. every day in July? (Ṁ10 Bonus)",
+  "question_text": "Will I avoid media and distracting apps before 1 p.m. every day in July? (Ṁ10 Bonus)",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 8lLlIIQcZ5",
+  "resolution_deadline": "2026-07-31T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "8lLlIIQcZ5",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-8lLlIIQcZ5.json",
+  "created_at": "2026-07-31T18:19:07.834035Z",
+  "created_by": "import"
+}
