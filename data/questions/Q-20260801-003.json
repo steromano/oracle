@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260801-003",
+  "title": "Will a Chinese AI model rank in the top 10 on the LMArena Text leaderboard on August 1?",
+  "question_text": "Will a Chinese AI model rank in the top 10 on the LMArena Text leaderboard on August 1?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market snZ6ClC8cP",
+  "resolution_deadline": "2026-08-03T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 2,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "snZ6ClC8cP",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-snZ6ClC8cP.json",
+  "created_at": "2026-08-01T17:58:46.762888Z",
+  "created_by": "import"
+}
