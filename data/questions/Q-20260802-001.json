@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260802-001",
+  "title": "Will Nigel Farage win the Clacton by election?",
+  "question_text": "Will Nigel Farage win the Clacton by election?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market hnC5dO8EZ5",
+  "resolution_deadline": "2026-08-13T21:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 11,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "hnC5dO8EZ5",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-hnC5dO8EZ5.json",
+  "created_at": "2026-08-02T18:00:35.126110Z",
+  "created_by": "import"
+}
