@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260803-003",
+  "title": "Will Russia gain more territory than it loses in July 2026?",
+  "question_text": "Will Russia gain more territory than it loses in July 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market cyczlIsszn",
+  "resolution_deadline": "2026-08-07T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 4,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "cyczlIsszn",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-cyczlIsszn.json",
+  "created_at": "2026-08-03T18:49:53.935459Z",
+  "created_by": "import"
+}

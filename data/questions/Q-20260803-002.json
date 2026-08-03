@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260803-002",
+  "title": "Will Mitch McConnell make a verifiable, live public appearance before August 3, 2026?",
+  "question_text": "Will Mitch McConnell make a verifiable, live public appearance before August 3, 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market qd6I6IqOhs",
+  "resolution_deadline": "2026-08-03T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "qd6I6IqOhs",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-qd6I6IqOhs.json",
+  "created_at": "2026-08-03T18:49:53.935459Z",
+  "created_by": "import"
+}
