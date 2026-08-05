@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260805-001",
+  "title": "Will Opus 4.6 pay back its loan?",
+  "question_text": "Will Opus 4.6 pay back its loan?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market NESEdRQ9O0",
+  "resolution_deadline": "2026-08-10T03:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 4,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "NESEdRQ9O0",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-NESEdRQ9O0.json",
+  "created_at": "2026-08-05T18:20:00.499306Z",
+  "created_by": "import"
+}
