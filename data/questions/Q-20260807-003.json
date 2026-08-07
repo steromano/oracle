@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260807-003",
+  "title": "Will Abdul El Sayed and Francesca Hong both win their primaries?",
+  "question_text": "Will Abdul El Sayed and Francesca Hong both win their primaries?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 8IdEu82UQS",
+  "resolution_deadline": "2026-08-12T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 5,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "8IdEu82UQS",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-8IdEu82UQS.json",
+  "created_at": "2026-08-07T17:47:43.923486Z",
+  "created_by": "import"
+}

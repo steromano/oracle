@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260807-001",
+  "title": "Will Haley Stevens endorse Abdul El-Sayed by Sunday?",
+  "question_text": "Will Haley Stevens endorse Abdul El-Sayed by Sunday?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 0cuR9825Ru",
+  "resolution_deadline": "2026-08-10T03:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 2,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "0cuR9825Ru",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-0cuR9825Ru.json",
+  "created_at": "2026-08-07T17:47:43.923486Z",
+  "created_by": "import"
+}

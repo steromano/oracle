@@ -1,10 +1,10 @@
 # Oracle scoreboard
 
-_Generated 2026-08-06 04:20 AEST_
+_Generated 2026-08-08 03:47 AEST_
 
 ## Headline
 
-- **N resolved:** 4
+- **N resolved:** 5
 - **Mean stream Brier:** insufficient N
 - **Mean log score:** insufficient N
 - **ECE:** insufficient N
@@ -15,8 +15,8 @@ _N < 30: with this few resolutions every headline cell is dominated by noise (§
 
 | Baseline | N | Mean Δ Brier | 95% CI | Win rate |
 | --- | --- | --- | --- | --- |
-| naive-claude | 4 | insufficient N | insufficient N | insufficient N |
-| always-0.5 | 4 | insufficient N | insufficient N | insufficient N |
-| base-rate-only | 4 | insufficient N | insufficient N | insufficient N |
-| market | 4 | insufficient N | insufficient N | insufficient N |
+| naive-claude | 5 | insufficient N | insufficient N | insufficient N |
+| always-0.5 | 5 | insufficient N | insufficient N | insufficient N |
+| base-rate-only | 5 | insufficient N | insufficient N | insufficient N |
+| market | 5 | insufficient N | insufficient N | insufficient N |
 _Negative Δ Brier means Oracle beat the baseline (lower Brier is better). Every headline comparison ships a bootstrap CI; cells with N < 30 print `insufficient N` (§9.4)._
