@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260809-002",
+  "title": "Will \"Spider-Man: Brand New Day\" earns more than $170M in domestic gross earnings during their second weekend?",
+  "question_text": "Will \"Spider-Man: Brand New Day\" earns more than $170M in domestic gross earnings during their second weekend?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market UhCl6Auc6I",
+  "resolution_deadline": "2026-08-11T17:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 1,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "UhCl6Auc6I",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-UhCl6Auc6I.json",
+  "created_at": "2026-08-09T17:29:50.714406Z",
+  "created_by": "import"
+}

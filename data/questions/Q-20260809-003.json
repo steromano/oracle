@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260809-003",
+  "title": "Will Francesca Hong win the 2026 Wisconsin Democratic Primary for governor by 10.00% or more?",
+  "question_text": "Will Francesca Hong win the 2026 Wisconsin Democratic Primary for governor by 10.00% or more?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market QNppPpt22q",
+  "resolution_deadline": "2026-08-11T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 2,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "QNppPpt22q",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-QNppPpt22q.json",
+  "created_at": "2026-08-09T17:29:50.714406Z",
+  "created_by": "import"
+}
