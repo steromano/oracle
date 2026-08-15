@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260815-001",
+  "title": "Will Manchester City be relegated or demoted before the start of the 2026/27 Premier League season?",
+  "question_text": "Will Manchester City be relegated or demoted before the start of the 2026/27 Premier League season?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market HeuuEdddfLL6EFrL0fRN",
+  "resolution_deadline": "2026-08-21T21:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 6,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "HeuuEdddfLL6EFrL0fRN",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-HeuuEdddfLL6EFrL0fRN.json",
+  "created_at": "2026-08-15T17:18:18.153309Z",
+  "created_by": "import"
+}
