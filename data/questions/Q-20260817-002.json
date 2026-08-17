@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260817-002",
+  "title": "Will Gavin Newsom cease to be the favorite Democratic Nominee before the end of 2026? [Per Polymarket Data]",
+  "question_text": "Will Gavin Newsom cease to be the favorite Democratic Nominee before the end of 2026? [Per Polymarket Data]",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market ANpQUZ6OZ9",
+  "resolution_deadline": "2026-08-22T04:00:01Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 4,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "ANpQUZ6OZ9",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-ANpQUZ6OZ9.json",
+  "created_at": "2026-08-17T17:24:57.989613Z",
+  "created_by": "import"
+}
