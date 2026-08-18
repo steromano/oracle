@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260818-006",
+  "title": "Will the existence of a non-MF group be proved this month?",
+  "question_text": "Will the existence of a non-MF group be proved this month?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market OuQIQtgL0g",
+  "resolution_deadline": "2026-08-31T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 13,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "OuQIQtgL0g",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-OuQIQtgL0g.json",
+  "created_at": "2026-08-18T17:24:10.452191Z",
+  "created_by": "import"
+}

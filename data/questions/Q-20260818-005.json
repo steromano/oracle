@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260818-005",
+  "title": "Will I solve an unsolved math problem with AI in August?",
+  "question_text": "Will I solve an unsolved math problem with AI in August?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market duZC8ZIlzS",
+  "resolution_deadline": "2026-08-31T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 13,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "duZC8ZIlzS",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-duZC8ZIlzS.json",
+  "created_at": "2026-08-18T17:24:10.452191Z",
+  "created_by": "import"
+}

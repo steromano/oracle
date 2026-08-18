@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260818-001",
+  "title": "Will Starship Ship 40 be recovered to shore?",
+  "question_text": "Will Starship Ship 40 be recovered to shore?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market Ln5EgOhAty",
+  "resolution_deadline": "2026-08-31T22:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 13,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "Ln5EgOhAty",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-Ln5EgOhAty.json",
+  "created_at": "2026-08-18T17:24:10.452191Z",
+  "created_by": "import"
+}
