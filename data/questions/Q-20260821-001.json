@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260821-001",
+  "title": "Will Bitcoin be higher 7 days from now?",
+  "question_text": "Will Bitcoin be higher 7 days from now?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 2cP8Rz8q89",
+  "resolution_deadline": "2026-08-27T01:28:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 5,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "2cP8Rz8q89",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-2cP8Rz8q89.json",
+  "created_at": "2026-08-21T17:26:17.234693Z",
+  "created_by": "import"
+}
