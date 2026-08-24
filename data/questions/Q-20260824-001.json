@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260824-001",
+  "title": "🇺🇸🇨🇳🇮🇷 Will the U.S. sanction a Chinese entity over ties to Iran by August 24, 2026?",
+  "question_text": "🇺🇸🇨🇳🇮🇷 Will the U.S. sanction a Chinese entity over ties to Iran by August 24, 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market ytzCSpZORz",
+  "resolution_deadline": "2026-08-24T20:59:59.999000Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "ytzCSpZORz",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-ytzCSpZORz.json",
+  "created_at": "2026-08-24T17:28:45.917039Z",
+  "created_by": "import"
+}
