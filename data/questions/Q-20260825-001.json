@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260825-001",
+  "title": "Will the WTI Crude Oil Spot Price be above $86.50 on August 27, 2026?",
+  "question_text": "Will the WTI Crude Oil Spot Price be above $86.50 on August 27, 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market dQ55LhL9zu",
+  "resolution_deadline": "2026-08-28T03:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 2,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "dQ55LhL9zu",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-dQ55LhL9zu.json",
+  "created_at": "2026-08-25T17:29:27.067548Z",
+  "created_by": "import"
+}

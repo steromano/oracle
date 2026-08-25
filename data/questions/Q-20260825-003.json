@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260825-003",
+  "title": "Will bitcoin rise to 85k before the Strait of Hormuz is freely open?",
+  "question_text": "Will bitcoin rise to 85k before the Strait of Hormuz is freely open?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market czd209Q96L",
+  "resolution_deadline": "2026-09-01T12:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 6,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "czd209Q96L",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-czd209Q96L.json",
+  "created_at": "2026-08-25T17:29:27.067548Z",
+  "created_by": "import"
+}

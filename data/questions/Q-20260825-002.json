@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260825-002",
+  "title": "Will Argentina’s country risk fall below 500bps before September 2026?",
+  "question_text": "Will Argentina’s country risk fall below 500bps before September 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market N2Zuz5RuIE",
+  "resolution_deadline": "2026-08-31T03:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 5,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "N2Zuz5RuIE",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-N2Zuz5RuIE.json",
+  "created_at": "2026-08-25T17:29:27.067548Z",
+  "created_by": "import"
+}
