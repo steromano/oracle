@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260826-002",
+  "title": "Will the US and Iran sign a formal end-of-war agreement by August 31, 2026?",
+  "question_text": "Will the US and Iran sign a formal end-of-war agreement by August 31, 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market Q6S5SZAys2",
+  "resolution_deadline": "2026-08-31T22:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 5,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "Q6S5SZAys2",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-Q6S5SZAys2.json",
+  "created_at": "2026-08-26T18:59:16.026882Z",
+  "created_by": "import"
+}

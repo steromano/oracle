@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260826-001",
+  "title": "Will Anthropic release a system card of a model at a new frontier of intellegence by August 31st?",
+  "question_text": "Will Anthropic release a system card of a model at a new frontier of intellegence by August 31st?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market uAPRyuqyq0",
+  "resolution_deadline": "2026-08-30T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 4,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "uAPRyuqyq0",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-uAPRyuqyq0.json",
+  "created_at": "2026-08-26T18:59:16.026882Z",
+  "created_by": "import"
+}
