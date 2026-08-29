@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260829-002",
+  "title": "Will twitter / x.com be open source before September?",
+  "question_text": "Will twitter / x.com be open source before September?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 8Z896gSZEy",
+  "resolution_deadline": "2026-08-31T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 2,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "8Z896gSZEy",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-8Z896gSZEy.json",
+  "created_at": "2026-08-29T19:36:23.985278Z",
+  "created_by": "import"
+}
