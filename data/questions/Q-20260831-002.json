@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260831-002",
+  "title": "Will California be in a drought at end of August 2026?",
+  "question_text": "Will California be in a drought at end of August 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market hnuCnLAIsu",
+  "resolution_deadline": "2026-08-31T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "hnuCnLAIsu",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-hnuCnLAIsu.json",
+  "created_at": "2026-08-31T21:43:54.332987Z",
+  "created_by": "import"
+}
