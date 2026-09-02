@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260902-002",
+  "title": "Will GPT 6 be released by September 15th?",
+  "question_text": "Will GPT 6 be released by September 15th?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 58hzg6qddE",
+  "resolution_deadline": "2026-09-14T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 12,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "58hzg6qddE",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-58hzg6qddE.json",
+  "created_at": "2026-09-02T19:37:42.308120Z",
+  "created_by": "import"
+}

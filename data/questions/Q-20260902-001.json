@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260902-001",
+  "title": "Openai Astra publically available before September 7th 2026",
+  "question_text": "Openai Astra publically available before September 7th 2026",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market slU22OlsCP",
+  "resolution_deadline": "2026-09-06T22:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 4,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "slU22OlsCP",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-slU22OlsCP.json",
+  "created_at": "2026-09-02T19:37:42.308120Z",
+  "created_by": "import"
+}
