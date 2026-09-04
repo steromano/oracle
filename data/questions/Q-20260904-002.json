@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260904-002",
+  "title": "Will the S&P 500 close above 7,710 on Friday?",
+  "question_text": "Will the S&P 500 close above 7,710 on Friday?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market IhNy5Lg2g5",
+  "resolution_deadline": "2026-09-05T00:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "IhNy5Lg2g5",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-IhNy5Lg2g5.json",
+  "created_at": "2026-09-04T19:17:17.888434Z",
+  "created_by": "import"
+}
