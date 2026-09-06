@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260906-001",
+  "title": "SPD above 5% in 2026 Saxony-Anhalt state election?",
+  "question_text": "SPD above 5% in 2026 Saxony-Anhalt state election?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 2ldCculsqt",
+  "resolution_deadline": "2026-09-06T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "2ldCculsqt",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-2ldCculsqt.json",
+  "created_at": "2026-09-06T18:50:04.690811Z",
+  "created_by": "import"
+}
