@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260907-001",
+  "title": "Will YES have more holders than NO?",
+  "question_text": "Will YES have more holders than NO?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 9C5RE6dRyg",
+  "resolution_deadline": "2026-09-14T00:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 6,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "9C5RE6dRyg",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-9C5RE6dRyg.json",
+  "created_at": "2026-09-07T20:21:15.992740Z",
+  "created_by": "import"
+}
