@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260910-002",
+  "title": "Will the WTI Crude Oil Spot Price be above $83 on September 10, 2026?",
+  "question_text": "Will the WTI Crude Oil Spot Price be above $83 on September 10, 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 2RLI6tspSs",
+  "resolution_deadline": "2026-09-10T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "2RLI6tspSs",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-2RLI6tspSs.json",
+  "created_at": "2026-09-10T19:27:10.615348Z",
+  "created_by": "import"
+}

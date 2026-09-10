@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260910-001",
+  "title": "Will the winner of the 2026 Vuelta a España be Roglic or Pogacar?",
+  "question_text": "Will the winner of the 2026 Vuelta a España be Roglic or Pogacar?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market tdPCyQdAgS",
+  "resolution_deadline": "2026-09-13T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 3,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "tdPCyQdAgS",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-tdPCyQdAgS.json",
+  "created_at": "2026-09-10T19:27:10.615348Z",
+  "created_by": "import"
+}
