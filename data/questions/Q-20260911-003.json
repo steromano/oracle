@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260911-003",
+  "title": "🇺🇸 Will the Fed raise interest rates in September 2026?",
+  "question_text": "🇺🇸 Will the Fed raise interest rates in September 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market R9y62C8sdP",
+  "resolution_deadline": "2026-09-16T17:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 4,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "R9y62C8sdP",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-R9y62C8sdP.json",
+  "created_at": "2026-09-11T19:27:43.506609Z",
+  "created_by": "import"
+}
