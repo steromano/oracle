@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260916-001",
+  "title": "US Average Gas Price Is $4.400 or more on September 21 2026?",
+  "question_text": "US Average Gas Price Is $4.400 or more on September 21 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 9qI5pctc9s",
+  "resolution_deadline": "2026-09-21T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 5,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "9qI5pctc9s",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-9qI5pctc9s.json",
+  "created_at": "2026-09-16T19:50:36.770609Z",
+  "created_by": "import"
+}
