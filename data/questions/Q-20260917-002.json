@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260917-002",
+  "title": "SpaceX closes at $150.00 or higher on Friday 18 September 2026?",
+  "question_text": "SpaceX closes at $150.00 or higher on Friday 18 September 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market SqIZstdznL",
+  "resolution_deadline": "2026-09-18T11:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "SqIZstdznL",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-SqIZstdznL.json",
+  "created_at": "2026-09-17T19:59:38.565653Z",
+  "created_by": "import"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260917-003",
+  "title": "Will If Anyone Builds It appear in a NYT bestseller list again?",
+  "question_text": "Will If Anyone Builds It appear in a NYT bestseller list again?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market spuyq56Py5",
+  "resolution_deadline": "2026-09-27T12:46:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 9,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "spuyq56Py5",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-spuyq56Py5.json",
+  "created_at": "2026-09-17T19:59:38.565653Z",
+  "created_by": "import"
+}

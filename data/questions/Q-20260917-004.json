@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260917-004",
+  "title": "Xi JinPing visits USA before Sep 30?",
+  "question_text": "Xi JinPing visits USA before Sep 30?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market cSAh00sC2d",
+  "resolution_deadline": "2026-09-29T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 12,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "cSAh00sC2d",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-cSAh00sC2d.json",
+  "created_at": "2026-09-17T19:59:38.565653Z",
+  "created_by": "import"
+}

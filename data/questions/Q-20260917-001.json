@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260917-001",
+  "title": "Opus 5.2 released in September?",
+  "question_text": "Opus 5.2 released in September?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 5gLqZ9hdIp",
+  "resolution_deadline": "2026-09-30T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 13,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "5gLqZ9hdIp",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-5gLqZ9hdIp.json",
+  "created_at": "2026-09-17T19:59:38.565653Z",
+  "created_by": "import"
+}
