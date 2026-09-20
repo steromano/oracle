@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260920-001",
+  "title": "Will The Odyssey gross more than Spider-Man: Brand New Day at the domestic box office this weekend (Sept 18–20)?",
+  "question_text": "Will The Odyssey gross more than Spider-Man: Brand New Day at the domestic box office this weekend (Sept 18–20)?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market EURt5Q6d6n",
+  "resolution_deadline": "2026-09-20T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "EURt5Q6d6n",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-EURt5Q6d6n.json",
+  "created_at": "2026-09-20T19:15:37.415012Z",
+  "created_by": "import"
+}
