@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260925-002",
+  "title": "Will Mitch Mcconnell be declared dead by September 30, 2026?",
+  "question_text": "Will Mitch Mcconnell be declared dead by September 30, 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market CZQncnC8OR",
+  "resolution_deadline": "2026-09-30T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 5,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "CZQncnC8OR",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-CZQncnC8OR.json",
+  "created_at": "2026-09-25T20:15:13.122037Z",
+  "created_by": "import"
+}
