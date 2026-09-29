@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260929-003",
+  "title": "US Average Gas Price Is $4.400 or more on October 1 2026?",
+  "question_text": "US Average Gas Price Is $4.400 or more on October 1 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 2qZqtN862U",
+  "resolution_deadline": "2026-10-01T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 2,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "2qZqtN862U",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-2qZqtN862U.json",
+  "created_at": "2026-09-29T21:15:57.295968Z",
+  "created_by": "import"
+}

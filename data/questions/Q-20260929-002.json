@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260929-002",
+  "title": "US government shutdown on October 1st 2026?",
+  "question_text": "US government shutdown on October 1st 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market EZdpLIIgqI",
+  "resolution_deadline": "2026-09-30T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 1,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "EZdpLIIgqI",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-EZdpLIIgqI.json",
+  "created_at": "2026-09-29T21:15:57.295968Z",
+  "created_by": "import"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260929-005",
+  "title": "Will Muse rank #1 in App Store (iPhone) on October 1st 2026",
+  "question_text": "Will Muse rank #1 in App Store (iPhone) on October 1st 2026",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market R8spSZE6NP",
+  "resolution_deadline": "2026-10-01T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 2,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "R8spSZE6NP",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-R8spSZE6NP.json",
+  "created_at": "2026-09-29T21:15:57.295968Z",
+  "created_by": "import"
+}

@@ -1,0 +1,25 @@
+{
+  "id": "Q-20260929-004",
+  "title": "US Average Gas Price Is $4.600 or more on any day in September 2026?",
+  "question_text": "US Average Gas Price Is $4.600 or more on any day in September 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market A6O0SUA58N",
+  "resolution_deadline": "2026-09-30T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 1,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "A6O0SUA58N",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-A6O0SUA58N.json",
+  "created_at": "2026-09-29T21:15:57.295968Z",
+  "created_by": "import"
+}
