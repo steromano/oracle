@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261001-002",
+  "title": "Will the silver spot price be above $75 USD on October 1st?",
+  "question_text": "Will the silver spot price be above $75 USD on October 1st?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market gqOp2yyhUA",
+  "resolution_deadline": "2026-10-01T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "gqOp2yyhUA",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-gqOp2yyhUA.json",
+  "created_at": "2026-10-01T21:33:31.379593Z",
+  "created_by": "import"
+}
