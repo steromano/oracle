@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261004-001",
+  "title": "Hegseth, Patel, or RFK is out within the next 90 days",
+  "question_text": "Hegseth, Patel, or RFK is out within the next 90 days",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market lCqlsLyZA6",
+  "resolution_deadline": "2026-10-05T11:10:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "lCqlsLyZA6",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-lCqlsLyZA6.json",
+  "created_at": "2026-10-04T19:54:03.190710Z",
+  "created_by": "import"
+}
