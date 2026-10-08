@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261008-001",
+  "title": "Will Gemini 4 Argon be released publicly before October 15",
+  "question_text": "Will Gemini 4 Argon be released publicly before October 15",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market Qgu99q9Lpu",
+  "resolution_deadline": "2026-10-14T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 6,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "Qgu99q9Lpu",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-Qgu99q9Lpu.json",
+  "created_at": "2026-10-08T21:49:27.167807Z",
+  "created_by": "import"
+}
