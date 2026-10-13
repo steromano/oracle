@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261013-001",
+  "title": "Will Anthropic’s IPO S-1 be public by 16 October 2026?",
+  "question_text": "Will Anthropic’s IPO S-1 be public by 16 October 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 25IRCRlIuz",
+  "resolution_deadline": "2026-10-15T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 2,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "25IRCRlIuz",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-25IRCRlIuz.json",
+  "created_at": "2026-10-13T21:42:58.622448Z",
+  "created_by": "import"
+}
