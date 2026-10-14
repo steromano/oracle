@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261014-001",
+  "title": "Does Claude Opus 5.5 make egregious errors?",
+  "question_text": "Does Claude Opus 5.5 make egregious errors?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market pcEc5O9CPc",
+  "resolution_deadline": "2026-10-15T19:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "pcEc5O9CPc",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-pcEc5O9CPc.json",
+  "created_at": "2026-10-14T20:27:10.075414Z",
+  "created_by": "import"
+}
