@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261015-001",
+  "title": "Fable 5.5 is released by the end of October 16th?",
+  "question_text": "Fable 5.5 is released by the end of October 16th?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market Og5SS5QzEL",
+  "resolution_deadline": "2026-10-17T06:59:59.999000Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 1,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "Og5SS5QzEL",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-Og5SS5QzEL.json",
+  "created_at": "2026-10-15T20:10:25.175087Z",
+  "created_by": "import"
+}
