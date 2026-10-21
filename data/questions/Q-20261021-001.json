@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261021-001",
+  "title": "Will Vivek Ramaswamy be the next Governor of Ohio?",
+  "question_text": "Will Vivek Ramaswamy be the next Governor of Ohio?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market a86n8pc6e3",
+  "resolution_deadline": "2026-11-04T04:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 13,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "a86n8pc6e3",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-a86n8pc6e3.json",
+  "created_at": "2026-10-21T20:26:44.485608Z",
+  "created_by": "import"
+}
