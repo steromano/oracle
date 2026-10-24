@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261024-001",
+  "title": "Republicans have a House majority after 2026 midterms?",
+  "question_text": "Republicans have a House majority after 2026 midterms?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market uISNlAqC2E",
+  "resolution_deadline": "2026-11-04T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 11,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "uISNlAqC2E",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-uISNlAqC2E.json",
+  "created_at": "2026-10-24T19:14:31.229913Z",
+  "created_by": "import"
+}
