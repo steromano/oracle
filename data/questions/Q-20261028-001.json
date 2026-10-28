@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261028-001",
+  "title": "Will Dan Sullivan win re-election to Alaska's Senate seat in 2026?",
+  "question_text": "Will Dan Sullivan win re-election to Alaska's Senate seat in 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market ULun8EOAAn",
+  "resolution_deadline": "2026-11-03T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 6,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "ULun8EOAAn",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-ULun8EOAAn.json",
+  "created_at": "2026-10-28T21:29:57.375479Z",
+  "created_by": "import"
+}
