@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261101-001",
+  "title": "If Trump is elected, will there be a ceasefire in Ukraine before the 2026 midterms?",
+  "question_text": "If Trump is elected, will there be a ceasefire in Ukraine before the 2026 midterms?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market rP0gSkoCniNTeQmDagJU",
+  "resolution_deadline": "2026-11-04T04:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 2,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "rP0gSkoCniNTeQmDagJU",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-rP0gSkoCniNTeQmDagJU.json",
+  "created_at": "2026-11-01T20:57:30.608223Z",
+  "created_by": "import"
+}
