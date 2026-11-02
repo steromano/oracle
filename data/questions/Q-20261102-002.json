@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261102-002",
+  "title": "Will a Republican win the Florida governorship in 2026?",
+  "question_text": "Will a Republican win the Florida governorship in 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market uODgxBgIoHZWqFqHGPbe",
+  "resolution_deadline": "2026-11-03T04:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "uODgxBgIoHZWqFqHGPbe",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-uODgxBgIoHZWqFqHGPbe.json",
+  "created_at": "2026-11-02T23:47:00.703890Z",
+  "created_by": "import"
+}
