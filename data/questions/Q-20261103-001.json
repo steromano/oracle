@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261103-001",
+  "title": "US-Iran ceasefire continues through October 31st? [Polymarket]",
+  "question_text": "US-Iran ceasefire continues through October 31st? [Polymarket]",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market dZ2QnEqSsQ",
+  "resolution_deadline": "2026-11-04T00:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "dZ2QnEqSsQ",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-dZ2QnEqSsQ.json",
+  "created_at": "2026-11-03T22:11:41.173191Z",
+  "created_by": "import"
+}

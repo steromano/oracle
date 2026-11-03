@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261103-003",
+  "title": "Will the Republicans win a majority in the House of Representatives in the 2026 elections?",
+  "question_text": "Will the Republicans win a majority in the House of Representatives in the 2026 elections?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market LuU2p2uI0U",
+  "resolution_deadline": "2026-11-03T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "LuU2p2uI0U",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-LuU2p2uI0U.json",
+  "created_at": "2026-11-03T22:11:41.173191Z",
+  "created_by": "import"
+}

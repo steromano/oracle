@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261103-006",
+  "title": "Will any part of America be under martial law during midterm elections?",
+  "question_text": "Will any part of America be under martial law during midterm elections?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market dNytldIuNO",
+  "resolution_deadline": "2026-11-04T02:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "dNytldIuNO",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-dNytldIuNO.json",
+  "created_at": "2026-11-03T22:11:41.173191Z",
+  "created_by": "import"
+}

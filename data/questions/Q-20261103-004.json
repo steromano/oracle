@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261103-004",
+  "title": "Will Democrats win 52 seats or more in the 2026 Senate Elections? (Fetterman Proof Majority)",
+  "question_text": "Will Democrats win 52 seats or more in the 2026 Senate Elections? (Fetterman Proof Majority)",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market gnq0CyNQcQ",
+  "resolution_deadline": "2026-11-03T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "gnq0CyNQcQ",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-gnq0CyNQcQ.json",
+  "created_at": "2026-11-03T22:11:41.173191Z",
+  "created_by": "import"
+}
