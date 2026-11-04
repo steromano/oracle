@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261104-001",
+  "title": "DEMS/IND win ANY of Florida, Mississippi, Montana or Louisiana?",
+  "question_text": "DEMS/IND win ANY of Florida, Mississippi, Montana or Louisiana?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market hQt9EISL9d",
+  "resolution_deadline": "2026-11-04T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "hQt9EISL9d",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-hQt9EISL9d.json",
+  "created_at": "2026-11-04T22:24:30.379823Z",
+  "created_by": "import"
+}
