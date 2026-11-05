@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261105-001",
+  "title": "Will there be a \"DOGE Dividend,\" even if it is actually just mislabelled stimulus, by the 2026 midterms?",
+  "question_text": "Will there be a \"DOGE Dividend,\" even if it is actually just mislabelled stimulus, by the 2026 midterms?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market RRIL6C0OQ2",
+  "resolution_deadline": "2026-11-06T04:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "RRIL6C0OQ2",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-RRIL6C0OQ2.json",
+  "created_at": "2026-11-05T22:32:07.070711Z",
+  "created_by": "import"
+}
