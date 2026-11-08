@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261108-001",
+  "title": "Will Astra 6.1+ be released this week (by November 8, 2026)?",
+  "question_text": "Will Astra 6.1+ be released this week (by November 8, 2026)?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market tSgg20LSzP",
+  "resolution_deadline": "2026-11-09T07:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "tSgg20LSzP",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-tSgg20LSzP.json",
+  "created_at": "2026-11-08T20:57:12.666762Z",
+  "created_by": "import"
+}
