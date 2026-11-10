@@ -1,6 +1,6 @@
 # Oracle scoreboard
 
-_Generated 2026-11-10 11:32 AEDT_
+_Generated 2026-11-11 09:08 AEDT_
 
 ## Headline
 

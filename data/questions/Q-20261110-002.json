@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261110-002",
+  "title": "Will WW3 happen before GTA6?",
+  "question_text": "Will WW3 happen before GTA6?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market sf9wxu6w5b",
+  "resolution_deadline": "2026-11-18T23:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 8,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "sf9wxu6w5b",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-sf9wxu6w5b.json",
+  "created_at": "2026-11-10T22:08:11.672689Z",
+  "created_by": "import"
+}
