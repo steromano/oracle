@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261110-001",
+  "title": "Will Netanyahu win the next elections in Israel?",
+  "question_text": "Will Netanyahu win the next elections in Israel?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market ROPSrfa7MAdY6RC7Nk8e",
+  "resolution_deadline": "2026-11-10T04:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "ROPSrfa7MAdY6RC7Nk8e",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-ROPSrfa7MAdY6RC7Nk8e.json",
+  "created_at": "2026-11-10T00:32:11.736783Z",
+  "created_by": "import"
+}
