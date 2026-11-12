@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261112-001",
+  "title": "Will Anthropic IPO by Nov 20?",
+  "question_text": "Will Anthropic IPO by Nov 20?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market dLEZL5CLgc",
+  "resolution_deadline": "2026-11-20T21:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 7,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "dLEZL5CLgc",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-dLEZL5CLgc.json",
+  "created_at": "2026-11-12T22:34:03.536920Z",
+  "created_by": "import"
+}
