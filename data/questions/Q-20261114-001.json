@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261114-001",
+  "title": "Will today’s FAA ground stop be confirmed as an AI hack by November 16?",
+  "question_text": "Will today’s FAA ground stop be confirmed as an AI hack by November 16?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 8OqhRA9cEC",
+  "resolution_deadline": "2026-11-16T21:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 1,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "8OqhRA9cEC",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-8OqhRA9cEC.json",
+  "created_at": "2026-11-14T21:05:31.607726Z",
+  "created_by": "import"
+}
