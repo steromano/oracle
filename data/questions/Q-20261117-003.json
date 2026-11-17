@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261117-003",
+  "title": "Anthropic Market cap close on IPO day is $1.1trillion or more?",
+  "question_text": "Anthropic Market cap close on IPO day is $1.1trillion or more?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 2Atz62S52u",
+  "resolution_deadline": "2026-11-19T21:00:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 1,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "2Atz62S52u",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-2Atz62S52u.json",
+  "created_at": "2026-11-17T23:43:44.661013Z",
+  "created_by": "import"
+}

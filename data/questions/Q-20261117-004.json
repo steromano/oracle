@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261117-004",
+  "title": "Will Magnus Carlsen be dethroned from his #1 spot in FIDE rating before GTA 6 is released?",
+  "question_text": "Will Magnus Carlsen be dethroned from his #1 spot in FIDE rating before GTA 6 is released?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market ojsc11z8cq",
+  "resolution_deadline": "2026-11-19T22:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 1,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "ojsc11z8cq",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-ojsc11z8cq.json",
+  "created_at": "2026-11-17T23:43:44.661013Z",
+  "created_by": "import"
+}
