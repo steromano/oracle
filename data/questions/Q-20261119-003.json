@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261119-003",
+  "title": "Will Daniel J. Sullivan Jr.'s vote total exceed Peltola's winning margin in Alaska's Senate race?",
+  "question_text": "Will Daniel J. Sullivan Jr.'s vote total exceed Peltola's winning margin in Alaska's Senate race?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market nnN6dUSt5O",
+  "resolution_deadline": "2026-11-25T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 6,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "nnN6dUSt5O",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-nnN6dUSt5O.json",
+  "created_at": "2026-11-19T23:23:46.015768Z",
+  "created_by": "import"
+}

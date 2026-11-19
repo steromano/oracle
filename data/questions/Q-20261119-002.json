@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261119-002",
+  "title": "Will Grand Theft Auto 6 require ID to play legally in the US upon release?",
+  "question_text": "Will Grand Theft Auto 6 require ID to play legally in the US upon release?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market nRR5QEzdzZ",
+  "resolution_deadline": "2026-11-19T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 0,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "nRR5QEzdzZ",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-nRR5QEzdzZ.json",
+  "created_at": "2026-11-19T23:23:46.015768Z",
+  "created_by": "import"
+}
