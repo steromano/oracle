@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261121-001",
+  "title": "Will GTA VI generate more than $4.5 billion in revenue during its first week?",
+  "question_text": "Will GTA VI generate more than $4.5 billion in revenue during its first week?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market 6LsPUP9AL9",
+  "resolution_deadline": "2026-11-27T07:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 5,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "6LsPUP9AL9",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-6LsPUP9AL9.json",
+  "created_at": "2026-11-21T22:01:07.510926Z",
+  "created_by": "import"
+}
