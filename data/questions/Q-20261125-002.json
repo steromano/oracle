@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261125-002",
+  "title": "CI2026: Will the Swiss ban noisy fireworks?",
+  "question_text": "CI2026: Will the Swiss ban noisy fireworks?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market ROpq22nCSA",
+  "resolution_deadline": "2026-11-28T22:59:59Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 3,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "ROpq22nCSA",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-ROpq22nCSA.json",
+  "created_at": "2026-11-25T01:14:59.064997Z",
+  "created_by": "import"
+}
