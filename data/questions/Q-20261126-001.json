@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261126-001",
+  "title": "Will JD Vance attempt to seize the presidency in November 2026?",
+  "question_text": "Will JD Vance attempt to seize the presidency in November 2026?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market EtOOPt5SSz",
+  "resolution_deadline": "2026-12-01T04:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 5,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "EtOOPt5SSz",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-EtOOPt5SSz.json",
+  "created_at": "2026-11-26T00:49:49.302924Z",
+  "created_by": "import"
+}
