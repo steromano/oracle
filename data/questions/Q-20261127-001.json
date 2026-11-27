@@ -1,0 +1,25 @@
+{
+  "id": "Q-20261127-001",
+  "title": "Will I play GTA6 on my PC within two weeks from its launch?",
+  "question_text": "Will I play GTA6 on my PC within two weeks from its launch?",
+  "q_type": "binary",
+  "thresholds": null,
+  "resolution_criteria": "",
+  "resolution_source": "manifold market LhuLc2nyL6",
+  "resolution_deadline": "2026-12-03T23:59:00Z",
+  "edge_cases": "Resolves VOID if the source market voids or is marked N/A.",
+  "domain": "other",
+  "horizon_days": 6,
+  "linked_markets": [
+    {
+      "platform": "manifold",
+      "market_id": "LhuLc2nyL6",
+      "price_at_creation": null
+    }
+  ],
+  "origin": "import",
+  "blind": true,
+  "sealed_snapshot": "data/sealed/manifold-LhuLc2nyL6.json",
+  "created_at": "2026-11-27T00:55:54.485381Z",
+  "created_by": "import"
+}
